@@ -1,0 +1,18 @@
+.kt-user-card-v4 {
+	position: relative;
+
+	&__button {
+		position: absolute;
+		right: 1.75rem;
+		bottom: -1rem;
+	}
+
+	&__initials {
+		padding:0;
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50%;
+		line-height: 2.5rem;
+		text-align: center;
+	}
+}

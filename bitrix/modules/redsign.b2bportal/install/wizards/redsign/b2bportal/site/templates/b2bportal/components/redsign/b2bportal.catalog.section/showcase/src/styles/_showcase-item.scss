@@ -1,0 +1,35 @@
+.catalog-showcase-item {
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+	padding: 20px;
+	border-right: 1px solid #efeff5;
+	border-bottom: 1px solid #efeff5;
+
+	&__picture {
+		height: 300px;
+		text-align: center;
+		margin-bottom: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&__picture > img {
+		max-width: 100%;
+		max-height: 300px;
+	}
+
+	&__data {
+		text-align: center;
+	}
+
+	&__name {
+		display: block;
+		margin: 0 0 10px;
+	}
+
+	&__price {
+		margin: 10px 0 0;
+		font-size: 1.5rem;
+	}
+}

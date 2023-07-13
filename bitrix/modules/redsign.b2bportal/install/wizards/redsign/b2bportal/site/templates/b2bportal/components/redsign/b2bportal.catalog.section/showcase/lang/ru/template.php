@@ -1,0 +1,4 @@
+<?php
+
+$MESS['RS_B2B_CS_SHOWCASE_PRICE_FROM'] = 'от';
+$MESS['RS_B2B_CS_SHOWCASE_PERPAGE'] = 'Выводить по:';

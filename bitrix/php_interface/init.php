@@ -4,12 +4,15 @@ define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 AddEventHandler("main", "OnBeforeUserRegister", Array("CUserEx", "deactivateUser"));
 // AddEventHandler("main", "OnAfterUserRegister", Array("CUserEx", "sendUserToCrm"));
 // AddEventHandler("main", "OnAfterUserAuthorize", Array("CUserEx", "openMainAfterAuth"));
-AddEventHandler("sale", "OnBeforeOrderUpdate", "checkOrder");
+define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
 require_once __DIR__ . '/crm_import/crest.php';
 
 
 /* Смена статуса заказа на проверку менеджера при изменении способа оплаты начало*/
+
+
+AddEventHandler("sale", "OnBeforeOrderUpdate", "checkOrder");
 function checkOrder($id,$arFields){
 
     $dbRes = \Bitrix\Sale\PaymentCollection::getList([
@@ -34,6 +37,25 @@ function checkOrder($id,$arFields){
 
 
 
+/* НАЧАЛО Обработчик при оформлении заказа НАЧАЛО*/
+
+
+
+AddEventHandler("sale", "OnBeforeOrderAdd", "addOrderToList");
+
+function addOrderToList($arFields){
+
+
+    if($arFields =){
+
+    }
+    AddMessage2Log($arFields, "addOrderToList");
+
+}
+
+
+
+/* КОНЕЦ Обработчик при оформлении заказа КОНЕЦ*/
 
 
 

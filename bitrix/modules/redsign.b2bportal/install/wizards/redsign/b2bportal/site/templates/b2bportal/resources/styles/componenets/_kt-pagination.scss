@@ -1,0 +1,18 @@
+.kt-pagination {
+	&__links > .kt-pagination__link--disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		
+		> a {
+			pointer-events: none;
+		}
+
+		&:hover {
+			background: rgba(235, 237, 242, 0.9) !important;
+		}
+		&:hover a,
+		&:hover a i {
+			color: #4b70ea !important;
+		}
+	}
+}

@@ -1,0 +1,15 @@
+.codex-editor__redactor {
+	overflow: auto;
+}
+
+.ce-block__content,
+.ce-toolbar__content {
+	max-width: 695px;
+	width: 695px;
+	font-family: "DejaVu Sans", sans-serif;
+	font-size: 15px;
+}
+
+.ce-header {
+	font-family: "DejaVu Sans", sans-serif;
+}

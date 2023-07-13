@@ -1,0 +1,12 @@
+.kt-offcanvas-panel {
+	&--cart {
+		max-width: 100%;
+		width: 600px !important;
+		left: -600px;
+	}
+
+	&--right &--cart {
+		left: auto;
+		right: -600px;
+	}
+}

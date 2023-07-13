@@ -1,0 +1,48 @@
+.pdf-cart-header,
+.pdf-cart-table,
+.pdf-total-table {
+	table-layout: fixed;
+	width: 100%;
+	border-collapse: separate;
+}
+.pdf-cart-header {
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ebedf2;
+}
+.pdf-cart-header__contacts {
+	text-align: right;
+	vertical-align: middle;
+}
+.pdf-cart-delimiter {
+	border: 0;
+	border-top: 1px solid #ebedf2;
+	background: transparent;
+}
+.pdf-cart-table th,
+.pdf-cart-table td {
+	vertical-align: top;
+	padding: .5em .5em 1em;
+}
+.pdf-cart-table .name {
+	text-align: left;
+	padding-left:0;
+	width: 40%;
+
+}
+.pdf-cart-table .price,
+.pdf-cart-table .quantity,
+.pdf-cart-table .sum_price {
+	text-align: right;
+	width: 20%;
+}
+.pdf-total-table td:nth-child(1) {
+	width: 85%;
+	text-align: right;
+	padding-right: 90px;
+}
+.pdf-total-table td:nth-child(2) {
+	width: 15%;
+	text-align: left;
+	white-space: nowrap;
+}

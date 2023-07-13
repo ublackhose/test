@@ -1,0 +1,9 @@
+.quickbasket .btn-icon.btn {
+  width: 2rem; }
+
+.quickbasket .btn-icon > .icon-svg {
+  font-size: .85714em; }
+
+.quickbasket .btn {
+  padding-left: .625rem;
+  padding-right: .625rem; }

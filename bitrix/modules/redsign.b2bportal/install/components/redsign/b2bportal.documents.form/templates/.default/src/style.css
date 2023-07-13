@@ -1,0 +1,26 @@
+.rs-doc-form-wrapper {
+    background-color: #fff;
+	padding: 15px 15px 20px;
+}
+.ui-page-slider-workarea-content-padding .rs-doc-form-wrapper {
+	padding: 0;
+}
+
+.rs-doc-form-two-field {
+	margin: 0 -10px;
+	display: flex;
+}
+.rs-doc-form-two-field .rs-doc-form-field {
+	padding: 0 10px;
+	max-width: 150px;
+}
+
+.rs-doc-form-field {
+	margin: 0 0 15px;
+}
+.rs-doc-form-field__label {
+	display: block;
+	margin: 0 0 6px 0;
+	color: #80868e;
+	font: 13px / 15px "Helvetica Neue", Arial, Helvetica, sans-serif;
+}

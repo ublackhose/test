@@ -1,0 +1,147 @@
+@import "mixin/all";
+
+.sale-order-detail {
+    .sale-order-detail-title-element {
+        @include h3;
+    }
+
+    .sale-order-detail-general {
+        border: none;
+    }
+
+    .sale-order-detail-back-to-list-link-down {
+        padding-bottom: 10px;
+    }
+
+    .sale-order-detail-general-item,
+    .sale-order-detail-general-head {
+        color: inherit;
+        background-color: #efeff5;
+    }
+
+    .sale-order-detail-about-order-inner-container-name-detail,
+    .sale-order-detail-about-order-inner-container-status-detail,
+    .sale-order-detail-about-order-inner-container-price-detail,
+    .sale-order-detail-payment-options-info-order-number,
+    .sale-order-detail-methods-title,
+    .sale-order-detail-payment-options-methods-shipment-list-item-title,
+    .sale-order-detail-total-payment-list-right-item {
+        color: #646c9a;
+    }
+
+    div.sale-order-detail-about-order-inner-container-repeat {
+        text-align: center;
+    }
+
+    .payment-options-methods-row {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .sale-order-detail-payment-options-methods-container:before,
+    div.payment-options-methods-row:before,
+    div.payment-options-methods-row:last-child:after {
+        display: none;
+    }
+
+    .sale-order-detail-about-order-inner-container-repeat-button {
+        @include btn-primary;
+    }
+
+    .sale-order-detail-payment-options-methods-info-title-status-alert,
+    .sale-order-payment-change-status-alert {
+        @include badge-danger;
+    }
+
+    .sale-order-detail-payment-options-methods-info-title-status-success {
+        @include badge-success;
+    }
+
+    .sale-order-detail-payment-options-methods-button-container {
+        text-align: center;
+    }
+
+    .btn-theme.sale-order-detail-payment-options-methods-button-element {
+        @include btn-primary;
+    }
+
+    .sale-order-detail-payment-options-shipment-image-container {
+        @media (min-width: 768px) {
+            flex: 0 0 16.66667%;
+            max-width: 16.66667%;
+        }
+    }
+    .sale-order-detail-payment-options-methods-shipment-list {
+        @media (min-width: 768px) {
+            flex: 0 0 66.66667%;
+            max-width: 66.66667%;
+        }
+    }
+
+    .sale-order-detail-order-section {
+        width: 100%;
+    }
+
+    .sale-order-detail-order-item-table {
+        margin-bottom: 0;
+        @include vgt-table;
+
+        .sale-order-detail-order-item-tr {
+            @include vgt-table-tr;
+
+            &:first-child {
+                .sale-order-detail-order-item-td {
+                    @include vgt-table-thead-th;
+                }
+            }
+        }
+
+        .sale-order-detail-order-item-td {
+            @include vgt-table-th-td;
+
+            &:first-child {
+                @include vgt-table-th-td-first-child;
+            }
+
+            &:last-child {
+                @include vgt-table-th-td-last-child;
+            }
+        }
+
+        .sale-order-detail-order-item-img-block {
+            display: none;
+        }
+
+        .sale-order-detail-order-item-title {
+            a {
+                @include link;
+            }
+        }
+
+        .bx-price {
+            font-weight: normal;
+        }
+
+    }
+
+    .sale-order-detail-total-payment-list-left-item {
+        @include form-group__label;
+        display: list-item;
+        font-size: inherit;
+    }
+
+    a.sale-order-detail-payment-options-methods-info-change-link,
+    a.sale-order-detail-show-link,
+    a.sale-order-detail-hide-link,
+    a.sale-order-list-cancel-payment {
+        color: #5867dd;
+        border-color: #5867dd;
+
+        &:hover,
+        &:focus {
+            color: #2739c1;
+            border-color: #2739c1;
+        }
+    }
+
+}

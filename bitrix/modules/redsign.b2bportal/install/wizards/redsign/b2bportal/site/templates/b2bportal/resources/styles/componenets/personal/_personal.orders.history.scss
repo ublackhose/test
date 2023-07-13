@@ -1,0 +1,11 @@
+@import "mixin/all";
+
+.sale-order-list-container {
+    .sale-order-list-accomplished-title-container {
+        background-color: #efeff5;
+    }
+    .sale-order-list-accomplished-title {
+        @include h5;
+        margin-top: 0.65rem;
+    }
+}

@@ -1,0 +1,16 @@
+.btn {
+	&.btn-light-hover-primary {
+		background: #fff;
+		border-color: #5867dd;
+		color: #5867dd;
+
+		&:hover,
+		&:focus,
+		&:not(.disabled):not(:disabled):active:focus,
+		&:not(.disabled):not(:disabled):active
+		{
+			background-color: #5867dd;
+			color: #fff;
+		}
+	}
+}

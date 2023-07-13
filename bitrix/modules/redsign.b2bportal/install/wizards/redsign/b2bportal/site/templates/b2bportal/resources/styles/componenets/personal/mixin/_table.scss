@@ -1,0 +1,35 @@
+@mixin vgt-table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: auto;
+    font-size: 1rem;
+    border-collapse: collapse;
+    border: none;
+    background-color: #fff;
+}
+
+@mixin vgt-table-tr {
+    border-bottom: 1px solid #f0f3ff;
+}
+
+@mixin vgt-table-th-td-first-child {
+    padding: 16px 25px !important;
+}
+
+@mixin vgt-table-th-td-last-child {
+    padding-right: 25px !important;
+}
+
+@mixin vgt-table-thead-th {
+    position: relative;
+    font-weight: 500;
+}
+
+@mixin vgt-table-th-td {
+    color: #646c9a;
+    padding: 16px 10px !important;
+    border: none;
+    background: transparent;
+    vertical-align: middle;
+    transition: background 0.3s ease;
+}

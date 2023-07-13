@@ -1,0 +1,142 @@
+
+body{
+	font-family: DejaVu Sans;
+	font-size: 15px;
+	margin: 0;
+	padding: 0;
+	-webkit-text-size-adjust: none !important;
+	width: 100%;
+	color: #3f3f3f;
+	letter-spacing: 0px;
+	word-wrap: break-word;
+	max-width: 698px;
+	margin: auto;
+}
+
+.heading {
+	padding: 1em 0;
+    margin: 0;
+    margin-bottom: -0.9em;
+    line-height: 1.5em;
+	font-weight: normal;
+}
+
+h1 {
+	font: 3rem;
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+h3 {
+	font-size: 1.75rem;
+}
+
+h4 {
+	font-size: 1.5rem;
+}
+
+h5 {
+	font-size: 1.25rem;
+}
+
+h6 {
+	font-size: 1rem;
+}
+
+a {
+	text-decoration: none;
+}
+
+p {
+    padding: .4em 0;
+	margin: 0;
+}
+
+b {
+	font-weight: bolder;
+}
+
+/* Product table */
+.rskp-pdf-pt {
+	border-collapse: collapse;
+	width: 100%;
+	margin: 20px 0;
+	vertical-align: middle;
+	table-layout: auto;
+}
+
+.rskp-pdf-pt__col {
+	vertical-align: middle;
+	padding: 1em;
+}
+
+.rskp-pdf-pt > tbody .rskp-pdf-pt__col {
+	border-bottom: 1px solid #ced4da;
+}
+
+.rskp-pdf-pt > thead .rskp-pdf-pt__col {
+	border-bottom: 1px solid #212529;
+}
+
+.rskp-pdf-pt__col--name,
+.rskp-pdf-pt__col--price {
+	text-align: left;
+}
+
+.rskp-pdf-pt__col--quantity,
+.rskp-pdf-pt__col--sum,
+.rskp-pdf-pt__col--price {
+	width: 110px;
+}
+
+.rskp-pdf-pt__col--quantity,
+.rskp-pdf-pt__col--sum { 
+	text-align: right;
+}
+
+.rskp-pdf-pt__col--total {
+	text-align: right;
+	font-weight: bold;
+}
+
+.rskp-pdf-pt > tfoot > tr > .rskp-pdf-pt__col {
+	border: 0;
+	padding-bottom: 0;
+}
+
+.rskp-pdf-pt > tfoot > tr + tr > .rskp-pdf-pt__col {
+	padding-top: 0;
+}
+
+.rskp-pdf-pt > tfoot > tr:not(:first-child) > .rskp-pdf-pt__col {
+	padding-top: 0;
+}
+
+.rskp-pdf-pt > tfoot > tr:not(:last-child) > .rskp-pdf-pt__col {
+	padding-bottom: 0;
+}
+
+.rskp-pdf-pt__code {
+	font-size: 0.875em;
+	color: #6c757d;
+}
+
+/* Template Header */
+.rskp-pdf-header {
+	width: 100%;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #ebedf2;
+	border-collapse: separate;
+}
+
+.rskp-pdf-header__contacts {
+	text-align: right;
+	vertical-align: middle;
+}

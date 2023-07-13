@@ -1,0 +1,84 @@
+.pswp-video-wrapper {
+	display: flex;
+	height: 100%;
+	max-width: 80%;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	
+	.embed-responsive {
+		max-height: 80%;
+	}
+}
+
+.product-images {
+
+	&-canvas {
+		display: block;
+		padding-bottom: 90%;
+		position: relative;
+	}
+
+	&-main {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		display: block;
+		max-height: 100%;
+		max-width: 100%;
+		margin: auto;
+		cursor: zoom-in;
+	}
+
+	&-thumbs {
+		text-align: center;
+	}
+
+	&-thumb {
+		display: inline-block;
+		width: 6.155rem;
+		height: 6.155rem;
+		cursor: pointer;
+		margin: 0.25rem;
+		padding: 0.25rem;
+		background-color: transparent;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		background-origin: content-box;
+		border: 1px solid #ebedf2;
+		outline: 0;
+		position: relative;
+		vertical-align: middle;
+
+		&.active {
+			border-color: #5867dd;
+		}
+	}
+
+	&-thumb-video {
+		background-color: rgba(255, 255, 255, 0.5);
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		top: 0;
+		left: 0;
+	}
+
+	&-thumb-video-icon {
+		background-color: #4e5053;
+		padding: 5px;
+		border-radius: 50%;
+		color: #fff;
+
+		> svg {
+			fill: currentColor;
+		}
+	}
+
+}

@@ -8,7 +8,6 @@ this.B2BPortal = this.B2BPortal || {};
 
             var data = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-            console.log(data.rows);
             babelHelpers.classCallCheck(this, SalePersonalOrderList);
             this.$el = el;
             this.$container = container;

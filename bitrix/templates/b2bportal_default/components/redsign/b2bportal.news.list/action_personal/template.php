@@ -42,7 +42,9 @@ $body->addModifier('fit');
 
 ?><div id="<?=$sBlockId?>_block"><?
 $portlet->render();
-?></div><?
+?></div>
+
+<?
 
 //////////////////////////////////////////
 
@@ -62,11 +64,18 @@ $arHeader[] = [
 	'html' => false,
 ];
 
+//$arHeader[] = [
+//	'label' => Loc::getMessage('RS.B2BPORTAL.NEWS_LIST.DOCS.TYPE'),
+//	'field' => 'PROPERTY_' . $arParams['PROPERTY_CODE_ID'][$arParams['PROP_TYPE']],
+//	'sortable' => true,
+//	'html' => false,
+//];
+
 $arHeader[] = [
 	'label' => Loc::getMessage('RS.B2BPORTAL.NEWS_LIST.DOCS.TYPE'),
-	'field' => 'PROPERTY_' . $arParams['PROPERTY_CODE_ID'][$arParams['PROP_TYPE']],
+	'field' => 'DETAIL_PAGE_URL',
 	'sortable' => true,
-	'html' => false,
+	'html' => true,
 ];
 
 // $arHeader[] = [
@@ -76,19 +85,19 @@ $arHeader[] = [
 //	 'html' => false,
 // ];
 
-$arHeader[] = [
-	'label' => Loc::getMessage('RS.B2BPORTAL.NEWS_LIST.DOCS.ORDER'),
-	'field' => 'PROPERTY_' . $arParams['PROPERTY_CODE_ID'][$arParams['PROP_ORDER_ID']],
-	'sortable' => true,
-	'html' => false,
-];
+//$arHeader[] = [
+//	'label' => Loc::getMessage('RS.B2BPORTAL.NEWS_LIST.DOCS.ORDER'),
+//	'field' => 'PROPERTY_' . $arParams['PROPERTY_CODE_ID'][$arParams['PROP_ORDER_ID']],
+//	'sortable' => true,
+//	'html' => false,
+//];
 
-$arHeader[] = [
-	'label' => Loc::getMessage('RS.B2BPORTAL.NEWS_LIST.DOCS.DOWNLOAD'),
-	'field' => 'actions',
-	'sortable' => false,
-	'html' => false,
-];
+//$arHeader[] = [
+//	'label' => Loc::getMessage('RS.B2BPORTAL.NEWS_LIST.DOCS.DOWNLOAD'),
+//	'field' => 'actions',
+//	'sortable' => false,
+//	'html' => false,
+//];
 
 
 $templateData['EDIT_AREAS'] = [];
@@ -102,11 +111,13 @@ if (!empty($arResult['ITEMS']))
 		$ownerId = $item['PROPERTIES'][$arParams['PROP_OWNER_ID']]['VALUE'];
 		$orderId = $item['PROPERTIES'][$arParams['PROP_ORDER_ID']]['VALUE'];
 
+
 		$arItemRow = [
 			'id' => $item['ID'],
+            'DETAIL_PAGE_URL' => $item['DETAIL_PAGE_URL'],
 			'editAreaId' => $editAreaId,
 			'active_from' => $item['DISPLAY_ACTIVE_FROM'],
-			'name' => $item['NAME'],
+			'name' => "<a href='".$item['DETAIL_PAGE_URL']."'>".$item['NAME']."</a>",
 			'PROPERTY_' . $arParams['PROPERTY_CODE_ID'][$arParams['PROP_TYPE']] => $item['DISPLAY_PROPERTIES'][$arParams['PROP_TYPE']]['DISPLAY_VALUE'],
 			'property_type_badge' => 'kt-badge--' . $item['PROPERTIES'][$arParams['PROP_TYPE']]['VALUE_XML_ID'],
 			'PROPERTY_' . $arParams['PROPERTY_CODE_ID'][$arParams['PROP_OWNER_ID']] => $ownerId,
@@ -138,6 +149,8 @@ if (!empty($arResult['ITEMS']))
 }
 
 $templateData['ITEMS_ROWS'] = $arItems;
+
+
 
 ?>
 

@@ -1,0 +1,5 @@
+.product-item-button-container .btn-sm {
+  border-radius: .75rem;
+  padding: .5rem .625rem; }
+  .product-item-button-container .btn-sm > .icon-svg {
+    vertical-align: text-bottom; }

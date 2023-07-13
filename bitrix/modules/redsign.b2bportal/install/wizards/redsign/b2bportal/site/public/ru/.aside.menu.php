@@ -1,0 +1,60 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Каталог товаров", 
+		"#SITE_DIR#catalog/", 
+		Array(), 
+		Array("ICON"=>"fas fa-list-ol"), 
+		"" 
+	),
+	Array(
+		"Личный кабинет", 
+		"#SITE_DIR#personal/", 
+		Array(), 
+		Array("ICON"=>"flaticon2-user-1"), 
+		"\$USER->IsAuthorized()" 
+	),
+	Array(
+		"Поставщикам", 
+		"#SITE_DIR#suppliers/", 
+		Array(), 
+		Array("ICON"=>"flaticon2-information"), 
+		"" 
+	),
+	Array(
+		"Акции", 
+		"#SITE_DIR#action/", 
+		Array(), 
+		Array("ICON"=>"flaticon2-rocket-1"), 
+		"" 
+	),
+	Array(
+		"Новости", 
+		"#SITE_DIR#news/", 
+		Array(), 
+		Array("ICON"=>"flaticon2-bell-2"), 
+		"" 
+	),
+	Array(
+		"Доставка", 
+		"#SITE_DIR#delivery/", 
+		Array(), 
+		Array("ICON"=>"flaticon2-lorry"), 
+		"" 
+	),
+	Array(
+		"Оплата", 
+		"#SITE_DIR#payment/", 
+		Array(), 
+		Array("ICON"=>"fab fa-cc-visa"), 
+		"" 
+	),
+	Array(
+		"Контакты", 
+		"#SITE_DIR#contacts/", 
+		Array(), 
+		Array("ICON"=>"flaticon2-location"), 
+		"" 
+	)
+);
+?>

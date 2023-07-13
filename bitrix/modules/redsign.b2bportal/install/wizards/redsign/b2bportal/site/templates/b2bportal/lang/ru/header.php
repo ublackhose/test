@@ -1,0 +1,6 @@
+<?php
+$MESS['VUE.VGT_PAGINATION.ROWS_PER_PAGE_TEXT'] = 'Выводить по:';
+$MESS['VUE.VGT_PAGINATION.ALL'] = 'Все';
+$MESS['VUE.VGT_PAGINATION.NO_DATA_FOR_TABLE'] = 'Ничего не найдено';
+$MESS['RS_B2BPORTAL_STOCK_QUANTITY_REST'] = 'остаток';
+$MESS['RS_B2BPORTAL_STOCKS_NOT_FOUND'] = 'складов не найдено';

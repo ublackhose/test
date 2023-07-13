@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d6fdff87-409d-4384-8f37-cd3a4357815b" name="mege">
+        <fileTransfer rootFolder="/srv/sites/mege-alpha/r1.mege-alpha.dev.4rome.ru/www" accessType="SFTP" host="ssh.dev.4rome.ru" port="7824" sshConfigId="048735bb-46f8-4223-b55f-cdaf3b02c585" sshConfig="i.klementev@ssh.dev.4rome.ru:7824 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

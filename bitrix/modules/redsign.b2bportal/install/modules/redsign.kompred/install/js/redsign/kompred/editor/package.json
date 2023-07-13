@@ -1,0 +1,11 @@
+{
+	"name": "redsign_kompred_editorjs",
+	"version": "1.0.0",
+	"main": "src/index.js",
+	"dependencies": {
+		"@editorjs/editorjs": "^2.19.1",
+		"@editorjs/header": "^2.6.1",
+		"editorjs-inline-tool": "^0.4.0",
+		"vue-currency-input": "^1.22.6"
+	}
+}

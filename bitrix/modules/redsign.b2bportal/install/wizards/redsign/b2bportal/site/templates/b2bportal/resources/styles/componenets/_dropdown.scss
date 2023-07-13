@@ -1,0 +1,25 @@
+.dropdow-menu-suggest {
+
+	.dropdown-item {
+		&:hover, 
+		&:focus {
+			background-color: inherit;
+			color: #74788d;
+		}
+
+		&.cursor {
+			color: #595d6e;
+			text-decoration: none;
+			background-color: #f7f8fa;
+		}
+	}
+
+}
+
+.dropdown-item {
+	&.cursor {
+		color: #595d6e;
+		text-decoration: none;
+		background-color: #f7f8fa;
+	}
+}

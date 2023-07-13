@@ -1,0 +1,33 @@
+@import "mixin/all";
+
+.sale-profile-detail-link-list {
+    margin-bottom: 10px;
+}
+
+.sale-personal-profile-detail-property-location {
+    .bx-ui-sls-input-block {
+        @include form-control;
+        padding: 0 22px 0 30px;
+    }
+
+    .bx-sls {
+        .dropdown-block {
+            box-shadow: none;
+        }
+
+        .bx-ui-sls-clear {
+            margin-top: 4px;
+        }
+    }
+
+}
+
+.sale-personal-profile-detail-load-file-info {
+    margin-left: 0.5rem;
+}
+.sale-personal-profile-detail-input-file {
+    display: none !important;
+}
+.sale-personal-profile-req {
+    color: red;
+}

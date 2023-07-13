@@ -1,0 +1,3 @@
+<?php
+$MESS['RS.B2BPORTAL.DOCS.FILTER_TITLE'] = 'Фильтр по документам';
+$MESS['RS.B2BPORTAL.DOCS.FILTER_PROPERTY_TYPE_PLACEHOLDER'] = 'Например Счет';

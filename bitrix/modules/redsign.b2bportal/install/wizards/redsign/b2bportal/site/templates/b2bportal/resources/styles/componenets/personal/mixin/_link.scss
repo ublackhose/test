@@ -1,0 +1,13 @@
+@mixin link {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: inherit;
+    color: #5867dd;
+    text-decoration: none;
+    background-color: transparent;
+
+    &:hover {
+        color: #2739c1;
+    }
+
+}

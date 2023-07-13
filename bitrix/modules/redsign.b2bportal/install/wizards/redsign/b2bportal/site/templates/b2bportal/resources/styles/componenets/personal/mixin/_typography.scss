@@ -1,0 +1,44 @@
+@mixin h {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+@mixin h1 {
+    @include h;
+    font-size: 2.5rem;
+}
+
+@mixin h2 {
+    @include h;
+    font-size: 2rem;
+}
+
+@mixin h3 {
+    @include h;
+    font-size: 1.75rem;
+}
+
+@mixin h4 {
+    @include h;
+    font-size: 1.5rem;
+}
+
+@mixin h5 {
+    @include h;
+    font-size: 1.25rem;
+}
+
+@mixin h6 {
+    @include h;
+    font-size: 1rem;
+}
+
+@mixin blockquote-footer {
+    display: block;
+    font-size: 80%;
+    color: #6c757d;
+}

@@ -1,0 +1,129 @@
+<?php
+
+/**
+ * @var CWizardBase $wizard
+ */
+
+if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
+    die();
+
+
+if (!CModule::IncludeModule("iblock"))
+    return;
+
+if (COption::GetOptionString("redsign.b2bportal", "wizard_installed", "N", WIZARD_SITE_ID) == "Y" && !WIZARD_INSTALL_DEMO_DATA) {
+    if ($wizard->GetVar('rewriteIndex', true)) {
+        $iblockCode = "redsign_b2bportal_system_managers_" . WIZARD_SITE_ID;
+        $iblockType = "system";
+
+        $rsIBlock = CIBlock::GetList(array(), array("XML_ID" => $iblockCode, "TYPE" => $iblockType));
+        $iblockID = false;
+        if ($arIBlock = $rsIBlock->Fetch()) {
+            CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH . '/include/personal_manager.php', ['MANAGERS_IBLOCK_ID' => $iblockID]);
+        }
+    }
+    return;
+}
+
+$iblockCode = "redsign_b2bportal_system_managers_" . WIZARD_SITE_ID;
+$iblockType = "system";
+
+$iblockXMLFile = WIZARD_SERVICE_RELATIVE_PATH . "/xml/" . LANGUAGE_ID . "/managers.xml";
+
+$rsIBlock = CIBlock::GetList(array(), array("XML_ID" => $iblockCode, "TYPE" => $iblockType));
+$iblockID = false;
+
+if ($arIBlock = $rsIBlock->Fetch()) {
+    $iblockID = $arIBlock["ID"];
+    if (WIZARD_INSTALL_DEMO_DATA) {
+        CIBlock::Delete($arIBlock["ID"]);
+        $iblockID = false;
+    }
+}
+
+if ($iblockID == false) {
+    $permissions = array(
+        "1" => "X",
+        "2" => "R"
+    );
+    $by = "";
+    $order = "";
+    $dbGroup = CGroup::GetList('', '', array("STRING_ID" => "content_editor"));
+    if ($arGroup = $dbGroup->Fetch()) {
+        $permissions[$arGroup["ID"]] = 'W';
+    };
+
+    $iblockID = WizardServices::ImportIBlockFromXML(
+        $iblockXMLFile,
+        "redsign_b2bportal_system_managers",
+        $iblockType,
+        WIZARD_SITE_ID,
+        $permissions
+    );
+
+    if ($iblockID < 1)
+        return;
+
+    //IBlock fields
+    $iblock = new CIBlock();
+    $arFields = array(
+        "ACTIVE" => "Y",
+        "FIELDS" => array ( 'IBLOCK_SECTION' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => '', ), 'ACTIVE' => array ( 'IS_REQUIRED' => 'Y', 'DEFAULT_VALUE' => 'Y', ), 'ACTIVE_FROM' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => '=today', ), 'ACTIVE_TO' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => '', ), 'SORT' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => '', ), 'NAME' => array ( 'IS_REQUIRED' => 'Y', 'DEFAULT_VALUE' => '', ), 'PREVIEW_PICTURE' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => array ( 'FROM_DETAIL' => 'N', 'SCALE' => 'N', 'WIDTH' => '', 'HEIGHT' => '', 'IGNORE_ERRORS' => 'N', 'METHOD' => 'resample', 'COMPRESSION' => 95, 'DELETE_WITH_DETAIL' => 'N', 'UPDATE_WITH_DETAIL' => 'N', ), ), 'PREVIEW_TEXT_TYPE' => array ( 'IS_REQUIRED' => 'Y', 'DEFAULT_VALUE' => 'text', ), 'PREVIEW_TEXT' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => '', ), 'DETAIL_PICTURE' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => array ( 'SCALE' => 'N', 'WIDTH' => '', 'HEIGHT' => '', 'IGNORE_ERRORS' => 'N', 'METHOD' => 'resample', 'COMPRESSION' => 95, ), ), 'DETAIL_TEXT_TYPE' => array ( 'IS_REQUIRED' => 'Y', 'DEFAULT_VALUE' => 'text', ), 'DETAIL_TEXT' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => '', ), 'XML_ID' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => '', ), 'CODE' => array ( 'IS_REQUIRED' => 'Y', 'DEFAULT_VALUE' => array ( 'UNIQUE' => 'Y', 'TRANSLITERATION' => 'Y', 'TRANS_LEN' => 100, 'TRANS_CASE' => 'L', 'TRANS_SPACE' => '_', 'TRANS_OTHER' => '_', 'TRANS_EAT' => 'Y', 'USE_GOOGLE' => 'Y', ), ), 'TAGS' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => '', ), 'SECTION_NAME' => array ( 'IS_REQUIRED' => 'Y', 'DEFAULT_VALUE' => '', ), 'SECTION_PICTURE' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => array ( 'FROM_DETAIL' => 'N', 'SCALE' => 'N', 'WIDTH' => '', 'HEIGHT' => '', 'IGNORE_ERRORS' => 'N', 'METHOD' => 'resample', 'COMPRESSION' => 95, 'DELETE_WITH_DETAIL' => 'N', 'UPDATE_WITH_DETAIL' => 'N', ), ), 'SECTION_DESCRIPTION_TYPE' => array ( 'IS_REQUIRED' => 'Y', 'DEFAULT_VALUE' => 'text', ), 'SECTION_DESCRIPTION' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => '', ), 'SECTION_DETAIL_PICTURE' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => array ( 'SCALE' => 'N', 'WIDTH' => '', 'HEIGHT' => '', 'IGNORE_ERRORS' => 'N', 'METHOD' => 'resample', 'COMPRESSION' => 95, ), ), 'SECTION_XML_ID' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => '', ), 'SECTION_CODE' => array ( 'IS_REQUIRED' => 'N', 'DEFAULT_VALUE' => array ( 'UNIQUE' => 'N', 'TRANSLITERATION' => 'N', 'TRANS_LEN' => 100, 'TRANS_CASE' => 'L', 'TRANS_SPACE' => '_', 'TRANS_OTHER' => '_', 'TRANS_EAT' => 'Y', 'USE_GOOGLE' => 'N', ), ), ),
+        "CODE" => "news",
+        "XML_ID" => $iblockCode,
+        'API_CODE' => 'RedsignB2bportalSystemManagers' . ucfirst(WIZARD_SITE_ID),
+    );
+
+    $iblock->Update($iblockID, $arFields);
+} else {
+    $arSites = array();
+    $db_res = CIBlock::GetSite($iblockID);
+    while ($res = $db_res->Fetch())
+        $arSites[] = $res["LID"];
+    if (!in_array(WIZARD_SITE_ID, $arSites)) {
+        $arSites[] = WIZARD_SITE_ID;
+        $iblock = new CIBlock();
+        $iblock->Update($iblockID, array("LID" => $arSites));
+    }
+}
+
+// Replace macros
+CWizardUtil::ReplaceMacros(WIZARD_SITE_PATH . '/include/personal_manager.php', ['MANAGERS_IBLOCK_ID' => $iblockID]);
+
+$lang = '';
+$dbSite = CSite::GetByID(WIZARD_SITE_ID);
+if($arSite = $dbSite->Fetch())
+    $lang = $arSite['LANGUAGE_ID'];
+if($lang == '')
+    $lang = 'ru';
+
+WizardServices::IncludeServiceLang("managers.php", $lang);
+
+$userTypeEntity = new CUserTypeEntity();
+$userTypeEntity->Add([
+    'ENTITY_ID' => 'USER',
+    'FIELD_NAME' => 'UF_PERSONAL_MANAGER',
+    'USER_TYPE_ID' => 'iblock_element',
+    'XML_ID' => 'UF_PERSONAL_MANAGER',
+    'SORT' => 100,
+    'MULTIPLE' => 'N',
+    'MANDATORY' => 'N',
+    'SHOW_FILTER' => 'N',
+    'SHOW_IN_LIST' => 'Y',
+    'EDIT_IN_LIST' => 'Y',
+    'IS_SEARCHABLE' => 'N',
+    'SETTINGS' => [
+        'DISPLAY' => 'LIST',
+        'LIST_HEIGHT' => 5,
+        'IBLOCK_ID' => $iblockID,
+        'ACTIVE_FILTER' => 'N',
+    ],
+    'EDIT_FORM_LABEL' => [
+        'ru' => GetMessage('WZD_MANAGERS_UF_EDIT_FORM_LABEL_RU'),
+        'en' => GetMessage('WZD_MANAGERS_UF_EDIT_FORM_LABEL_EN'),
+    ],
+    'LIST_COLUMN_LABEL' => array(
+        'ru' => GetMessage('WZD_MANAGERS_UF_LIST_COLUMN_LABEL_RU'),
+        'en' => GetMessage('WZD_MANAGERS_UF_LIST_COLUMN_LABEL_EN'),
+    ),
+]);

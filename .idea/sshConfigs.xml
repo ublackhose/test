@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="mege-alpha.dev.4rome.ru" id="f4f6149b-899c-4140-a0b8-0b0fb60b6142" port="22" nameFormat="DESCRIPTIVE" username="megealpha" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

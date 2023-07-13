@@ -1,0 +1,78 @@
+.rskp-e-pt {
+	border-collapse: collapse;
+	width: 100%;
+	margin: 20px 0;
+	vertical-align: middle;
+	table-layout: auto;
+}
+
+.rskp-e-pt__col {
+	vertical-align: middle;
+	padding: 1em;
+}
+
+.rskp-e-pt > tbody .rskp-e-pt__col {
+	border-bottom: 1px solid #ced4da;
+}
+
+.rskp-e-pt > thead .rskp-e-pt__col {
+	border-bottom: 1px solid #212529;
+}
+
+.rskp-e-pt__col--name,
+.rskp-e-pt__col--price {
+	text-align: left;
+}
+
+.rskp-e-pt__col--price {
+	width: 140px;
+}
+
+.rskp-e-pt__col--quantity {
+	width: 110px;
+}
+
+.rskp-e-pt__col--sum {
+	width: 120px;
+	max-width: 120px;
+}
+
+.rskp-e-pt__col--sum > span {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 110px;
+	display: inline-block;
+}
+
+.rskp-e-pt__col--quantity,
+.rskp-e-pt__col--sum { 
+	text-align: right;
+}
+
+.rskp-e-pt__col--total {
+	text-align: right;
+	font-weight: bold;
+}
+
+.rskp-e-pt > tfoot > tr > .rskp-e-pt__col {
+	border: 0;
+	padding-bottom: 0;
+}
+
+.rskp-e-pt > tfoot > tr + tr > .rskp-e-pt__col {
+	padding-top: 0;
+}
+
+.rskp-e-pt > tfoot > tr:not(:first-child) > .rskp-e-pt__col {
+	padding-top: 0;
+}
+
+.rskp-e-pt > tfoot > tr:not(:last-child) > .rskp-e-pt__col {
+	padding-bottom: 0;
+}
+
+.rskp-e-pt__code {
+	font-size: 0.875em;
+	color: #6c757d;
+}

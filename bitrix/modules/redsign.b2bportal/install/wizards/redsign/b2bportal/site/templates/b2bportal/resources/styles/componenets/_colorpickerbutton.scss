@@ -1,0 +1,22 @@
+.colorpicker-button {
+
+	position: relative;
+
+	&__button {
+		transition: none;
+
+		&,
+		&:hover,
+		&:focus,
+		&:not(.disabled):not(:disabled):active {
+			background-color: currentColor;
+			border-color:  #e2dfdf
+		}
+	}
+
+	&__picker {
+		position: absolute;
+		margin-top: 5px;
+		margin-left: -30px;
+	}
+}

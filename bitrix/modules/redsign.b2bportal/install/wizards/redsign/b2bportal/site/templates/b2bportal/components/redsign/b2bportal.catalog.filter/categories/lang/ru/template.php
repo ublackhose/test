@@ -1,0 +1,4 @@
+<?php
+
+$MESS['RS_B2B_CF_CATEGORIES_TITLE'] = 'Категории';
+$MESS['RS_B2B_CF_CATEGORIES_SEARCH'] = 'Поиск';

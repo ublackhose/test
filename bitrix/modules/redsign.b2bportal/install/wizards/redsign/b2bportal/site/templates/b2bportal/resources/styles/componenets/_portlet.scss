@@ -1,0 +1,19 @@
+.kt-portlet {
+	&.kt-portlet--draggable .kt-portlet__head {
+		cursor: move;
+	}
+
+	.kt-portlet__head--is-sticky {
+		position: sticky;
+		background-color: #fff;
+		z-index: 90;
+		top: 0;
+	}
+
+	@media all and (-ms-high-contrast:none)
+	{
+		.kt-portlet__head--is-sticky {
+			height: 1px;
+		}
+	}
+}

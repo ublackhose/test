@@ -702,12 +702,10 @@ this.B2BPortal = this.B2BPortal || {};
                                     });
 
                                 case 5:
-                                    console.log(3);
                                     result = _context2.sent;
                                     _context2.t0 = regeneratorRuntime.keys(result);
 
                                 case 7:
-                                    console.log(4);
                                     if ((_context2.t1 = _context2.t0()).done) {
                                         _context2.next = 14;
                                         break;
@@ -723,7 +721,6 @@ this.B2BPortal = this.B2BPortal || {};
                                     return _context2.abrupt("continue", 7);
 
                                 case 11:
-                                    console.log(5);
                                     if (result[i].isSuccess) {
                                         toastr.success("".concat(i, ": ").concat(result[i].message));
 
@@ -736,7 +733,7 @@ this.B2BPortal = this.B2BPortal || {};
                                     break;
 
                                 case 14:
-                                    console.log(6);
+
                                     KTApp.unblock(document.querySelector('.modal.show'));
 
                                     _this2.updateDisplayContent();
@@ -744,7 +741,6 @@ this.B2BPortal = this.B2BPortal || {};
                                     _this2.$store.dispatch('cart/fetch');
 
                                 case 17:
-                                    console.log(7);
                                 case "end":
                                     return _context2.stop();
                             }
@@ -979,16 +975,11 @@ this.B2BPortal = this.B2BPortal || {};
         store = _B2BPortal.store;
     var BasketCodesImport = /*#__PURE__*/function () {
         function BasketCodesImport(params) {
-
-            try {
                 babelHelpers.classCallCheck(this, BasketCodesImport);
                 this._params = params;
                 this.el = params.el;
                 this.signedParameters = params.signedParameters;
                 this.init();
-            } catch (err) {
-                console.log(123);
-            }
 
         }
 

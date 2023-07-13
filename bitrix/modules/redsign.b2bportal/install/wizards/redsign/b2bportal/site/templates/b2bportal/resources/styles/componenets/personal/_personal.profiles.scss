@@ -1,0 +1,32 @@
+@import "mixin/all";
+
+.sale-personal-profile-list-container {
+    margin-bottom: 0;
+    @include vgt-table;
+
+    tr {
+        @include vgt-table-tr;
+    }
+
+    th {
+        @include vgt-table-thead-th;
+    }
+
+    td {
+        @include vgt-table-th-td;
+
+        &:first-child {
+            @include vgt-table-th-td-first-child;
+        }
+
+        &:last-child {
+            @include vgt-table-th-td-last-child;
+        }
+    }
+
+    .sale-personal-profile-list-change-button {
+        @include link;
+
+        border-bottom: none;
+    }
+}

@@ -1,0 +1,7 @@
+.rs-news-list-lines {
+    .list-group-item {
+        &:first-of-type {
+            border-top: none;
+        }
+    }
+}

@@ -1,0 +1,3 @@
+<?php
+$MESS['RS.B2BPORTAL.ORM_FILTER.SET_FILTER'] = 'Применить';
+$MESS['RS.B2BPORTAL.ORM_FILTER.RESET_FILTER'] = 'Очистить';

@@ -1,0 +1,64 @@
+@mixin badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    border-radius: 2rem;
+    width: auto;
+    height: 0;
+    padding: 0.75rem 0.75rem;
+}
+
+@mixin badge-primary {
+    @include badge;
+    color: #fff;
+    background-color: #5867dd;
+}
+
+@mixin badge-secondary {
+    @include badge;
+    color: #212529;
+    background-color: #e1e1ef;
+}
+
+@mixin badge-success {
+    @include badge;
+    color: #fff;
+    background-color: #1dc9b7;
+}
+
+@mixin badge-danger {
+    @include badge;
+    color: #fff;
+    background-color: #fd397a;
+}
+
+@mixin badge-warning {
+    @include badge;
+    color: #212529;
+    background-color: #ffb822;
+}
+
+@mixin badge-info {
+    @include badge;
+    color: #fff;
+    background-color: #5578eb;
+}
+
+@mixin badge-light {
+    @include badge;
+    color: #212529;
+    background-color: #f8f9fa;
+}
+
+@mixin badge-dark {
+    @include badge;
+    color: #fff;
+    background-color: #343a40;
+}

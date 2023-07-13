@@ -1,0 +1,24 @@
+.catalog-showcase {
+	margin-right: -1px;
+	display: flex;
+	flex-wrap: wrap;
+
+	& > .catalog-showcase-item {
+		flex: 0 1 100%;
+		width: 100%;
+	}
+
+	@media (min-width: 576px) {
+		& > .catalog-showcase-item {
+			flex: 0 1 calc(100% / 2);
+			width: calc(100% / 2);
+		}
+	}
+
+	@media (min-width: 1399px) {
+		& > .catalog-showcase-item {
+			flex: 0 1 calc(100% / 3);
+			width: calc(100% / 3);
+		}
+	}
+}
