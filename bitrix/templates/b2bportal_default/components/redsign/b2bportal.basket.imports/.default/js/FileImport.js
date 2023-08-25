@@ -49,6 +49,8 @@ this.B2BPortal = this.B2BPortal || {};
     }
 
     function addtobasket(_x4) {
+
+        console.log(_x4);
         return _addtobasket.apply(this, arguments);
     }
 
@@ -435,7 +437,7 @@ this.B2BPortal = this.B2BPortal || {};
                 }
 
                 var _iterator = _createForOfIteratorHelper(rows),
-                    _step;
+                        _step;
 
                 try {
                     for (_iterator.s(); !(_step = _iterator.n()).done;) {
@@ -520,7 +522,7 @@ this.B2BPortal = this.B2BPortal || {};
 
     function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
                                 /* server only */
-        , shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
+            , shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
         if (typeof shadowMode !== 'boolean') {
             createInjectorSSR = createInjector;
             createInjector = shadowMode;
@@ -552,8 +554,8 @@ this.B2BPortal = this.B2BPortal || {};
             hook = function hook(context) {
                 // 2.3 injection
                 context = context || // cached call
-                    this.$vnode && this.$vnode.ssrContext || // stateful
-                    this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
+                        this.$vnode && this.$vnode.ssrContext || // stateful
+                        this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
                 // 2.2 with runInNewContext: true
 
                 if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
@@ -857,12 +859,12 @@ this.B2BPortal = this.B2BPortal || {};
                         on: {
                             change: function change($event) {
                                 var $$a = _vm.skipFirstRow,
-                                    $$el = $event.target,
-                                    $$c = $$el.checked ? true : false;
+                                        $$el = $event.target,
+                                        $$c = $$el.checked ? true : false;
 
                                 if (Array.isArray($$a)) {
                                     var $$v = null,
-                                        $$i = _vm._i($$a, $$v);
+                                            $$i = _vm._i($$a, $$v);
 
                                     if ($$el.checked) {
                                         $$i < 0 && (_vm.skipFirstRow = $$a.concat([$$v]));
@@ -903,28 +905,35 @@ this.B2BPortal = this.B2BPortal || {};
             }, {
                 key: "step3",
                 fn: function fn(step3) {
-                    return [_vm._v("\n\t\t" + _vm._s(_vm.messages.RS_B2BPORTAL_BI_FILE_IMPORT_STEP_3)), _c("br"), _c("br"), _vm._v(" "), !!_vm.result ? _c("div", _vm._l(_vm.result, function (basketResult, code) {
-                        return _c("div", {
-                            key: code
-                        }, [_c("span", {
-                            class: {
-                                "text-success": basketResult.isSuccess,
-                                "text-danger": !basketResult.isSuccess
+                    return [_vm._v("\n\t\t" + _vm._s(_vm.messages.RS_B2BPORTAL_BI_FILE_IMPORT_STEP_3)),
+                        _c("br"),
+                        _c("br"), _vm._v(" "), !!_vm.result ?
+                                _c("div", {
+                                    class: "text-file",
+
+                                }, _vm._l(_vm.result, function (basketResult, code) {
+                                    return _c("div", {
+                                        key: code
+                                    }, [_c("span", {
+                                                class: {
+                                                    "text-success": basketResult.isSuccess,
+                                                    "text-danger": !basketResult.isSuccess
+                                                }
+                                            },
+                                            [_vm._v(_vm._s(code) + ": " + _vm._s(basketResult.message) + " ")])]);
+                                }), 0) : _vm._e(), _vm._v(" "), _c("br"), _c("br"), _vm._v(" "), _c("a", {
+                            staticClass: "btn btn-primary pull-right",
+                            attrs: {
+                                href: "#"
+                            },
+                            on: {
+                                click: function click($event) {
+                                    $event.preventDefault();
+                                    $event.stopPropagation();
+                                    return _vm.reset();
+                                }
                             }
-                        }, [_vm._v(_vm._s(code) + ": " + _vm._s(basketResult.message) + " ")])]);
-                    }), 0) : _vm._e(), _vm._v(" "), _c("br"), _c("br"), _vm._v(" "), _c("a", {
-                        staticClass: "btn btn-primary pull-right",
-                        attrs: {
-                            href: "#"
-                        },
-                        on: {
-                            click: function click($event) {
-                                $event.preventDefault();
-                                $event.stopPropagation();
-                                return _vm.reset();
-                            }
-                        }
-                    }, [_vm._v(" " + _vm._s(_vm.messages.RS_B2BPORTAL_BI_FILE_IMPORT_RESET) + " ")])];
+                        }, [_vm._v(" " + _vm._s(_vm.messages.RS_B2BPORTAL_BI_FILE_IMPORT_RESET) + " ")])];
                 }
             }])
         });
@@ -954,7 +963,7 @@ this.B2BPortal = this.B2BPortal || {};
     }, __vue_inject_styles__, __vue_script__, __vue_scope_id__, __vue_is_functional_template__, __vue_module_identifier__, undefined, undefined);
 
     var _B2BPortal = B2BPortal,
-        store = _B2BPortal.store;
+            store = _B2BPortal.store;
     var BasketFileImport = /*#__PURE__*/function () {
 
         function BasketFileImport(params) {

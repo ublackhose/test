@@ -97,7 +97,6 @@ foreach ($arParams as $paramCode => $paramValue)
 		);?>
 	</div>
 	<div class="col-12 col-xl-9">
-
 		<?php include 'include/mods.php'; ?>
 		<?php $APPLICATION->ShowViewContent('catalog-element-data'); ?>
 		<?php include 'include/lines.php'; ?>

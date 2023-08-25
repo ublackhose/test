@@ -18,7 +18,7 @@ if (Loader::includeModule('catalog'))
 {
     $priceGroupsIterator = \Bitrix\Catalog\GroupTable::getList([
         'order' => ['SORT' => 'ASC'],
-        'select' => ['ID', 'NAME','PROPERTY_CML2_ARTICLE' , 'TITLE' => 'CURRENT_LANG.NAME']
+        'select' => ['ID', 'NAME', 'TITLE' => 'CURRENT_LANG.NAME']
     ]);
     while ($group = $priceGroupsIterator->fetch())
     {

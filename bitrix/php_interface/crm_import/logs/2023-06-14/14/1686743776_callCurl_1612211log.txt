@@ -1,0 +1,59 @@
+array (
+  'url' => 'https://192.168.136.10/rest/6391/jatd2cfmora8q373/crm.lead.add.json',
+  'info' => 
+  array (
+    'url' => 'https://192.168.136.10/rest/6391/jatd2cfmora8q373/crm.lead.add.json',
+    'content_type' => NULL,
+    'http_code' => 0,
+    'header_size' => 0,
+    'request_size' => 0,
+    'filetime' => -1,
+    'ssl_verify_result' => 0,
+    'redirect_count' => 0,
+    'total_time' => 2.003187,
+    'namelookup_time' => 1.4E-5,
+    'connect_time' => 0.0,
+    'pretransfer_time' => 0.0,
+    'size_upload' => 0.0,
+    'size_download' => 0.0,
+    'speed_download' => 0.0,
+    'speed_upload' => 0.0,
+    'download_content_length' => -1.0,
+    'upload_content_length' => -1.0,
+    'starttransfer_time' => 0.0,
+    'redirect_time' => 0.0,
+    'redirect_url' => '',
+    'primary_ip' => '192.168.136.10',
+    'certinfo' => 
+    array (
+    ),
+    'primary_port' => 443,
+    'local_ip' => '',
+    'local_port' => 0,
+    'curl_error' => 'Failed connect to 192.168.136.10:443; No route to host',
+  ),
+  'params' => 
+  array (
+    'method' => 'crm.lead.add',
+    'params' => 
+    array (
+      'fields' => 
+      array (
+        'TITLE' => 'ТЕСТОВЫЙ ЛИД',
+        'SOURCE_ID' => 3,
+        'NAME' => 'Тестовое имя',
+        'PHONE' => 
+        array (
+          'n0' => 
+          array (
+            'VALUE' => '+7 999 999 99 99',
+            'VALUE_TYPE' => 'MOBILE',
+          ),
+        ),
+        'COMMENTS' => 'test',
+        'ASSIGNED_BY_ID' => 6391,
+      ),
+    ),
+  ),
+  'result' => NULL,
+)

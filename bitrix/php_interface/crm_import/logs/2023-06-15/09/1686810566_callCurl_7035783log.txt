@@ -1,0 +1,70 @@
+array (
+  'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+  'info' => 
+  array (
+    'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+    'content_type' => 'application/json; charset=utf-8',
+    'http_code' => 200,
+    'header_size' => 813,
+    'request_size' => 563,
+    'filetime' => -1,
+    'ssl_verify_result' => 0,
+    'redirect_count' => 0,
+    'total_time' => 0.31799599999999995,
+    'namelookup_time' => 0.00411,
+    'connect_time' => 0.05135999999999996,
+    'pretransfer_time' => 0.05137999999999998,
+    'size_upload' => 357.0,
+    'size_download' => 225.0,
+    'speed_download' => 707.0,
+    'speed_upload' => 1122.0,
+    'download_content_length' => 225.0,
+    'upload_content_length' => 357.0,
+    'starttransfer_time' => 0.31798000000000004,
+    'redirect_time' => 0.0,
+    'redirect_url' => '',
+    'primary_ip' => '185.185.56.189',
+    'certinfo' => 
+    array (
+    ),
+    'primary_port' => 80,
+    'local_ip' => '192.168.122.202',
+    'local_port' => 53750,
+  ),
+  'params' => 
+  array (
+    'method' => 'crm.lead.add',
+    'params' => 
+    array (
+      'fields' => 
+      array (
+        'TITLE' => 'ТЕСТОВЫЙ ЛИД',
+        'SOURCE_ID' => 3,
+        'NAME' => 'Тестовое имя',
+        'PHONE' => 
+        array (
+          'n0' => 
+          array (
+            'VALUE' => '+7 999 999 99 99',
+            'VALUE_TYPE' => 'MOBILE',
+          ),
+        ),
+        'COMMENTS' => 'test',
+        'ASSIGNED_BY_ID' => 6391,
+      ),
+    ),
+  ),
+  'result' => 
+  array (
+    'result' => 68028,
+    'time' => 
+    array (
+      'start' => 1686810566.001654,
+      'finish' => 1686810566.192729,
+      'duration' => 0.19107508659362793,
+      'processing' => 0.15616083145141602,
+      'date_start' => '2023-06-15T09:29:26+03:00',
+      'date_finish' => '2023-06-15T09:29:26+03:00',
+    ),
+  ),
+)

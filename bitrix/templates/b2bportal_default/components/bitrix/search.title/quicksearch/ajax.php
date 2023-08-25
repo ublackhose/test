@@ -57,13 +57,10 @@ foreach ($arResult['CATEGORIES'] as $categoryId => $category)
 
     $jsResult[] = [
         'id' => $categoryId,
-        'id1' => 123,
         'title' => $category['TITLE'],
         'items' => $items
     ];
 }
 
 $jsonResponse = AjaxJson::createSuccess($jsResult);
-
-
 $jsonResponse->send();

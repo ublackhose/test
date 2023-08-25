@@ -43,7 +43,7 @@ $portlet->head(new Portlet\Head(function () use ($component, $arResult, $arParam
 			}
 			?>
 			<a href="<?=$arResult["URL_TO_COPY"]?>" class="btn btn-outline-primary">
-				<?= Loc::getMessage('SPOD_ORDER_REPEAT') ?>
+				<?= Loc::getMessage('SPOD_ORDER_REPEAT') ?>123
 			</a>
 			<?php
 		}

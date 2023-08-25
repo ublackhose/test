@@ -77,9 +77,7 @@ $sBlockId = 'basketimports_' . $this->randString(5);
 	</div>
 </div>
 
-<?
-print_r($this->getComponent()->getSignedParameters());
-?>
+
 
 <script>
 <?php $messages = Loc::loadLanguageFile(__FILE__); ?>

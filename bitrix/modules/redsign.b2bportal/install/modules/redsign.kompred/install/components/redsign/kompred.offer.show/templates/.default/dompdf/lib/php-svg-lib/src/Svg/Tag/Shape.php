@@ -40,24 +40,4 @@ class Shape extends AbstractTag
                 if ($stroke) {
                     $surface->fillStroke();
                 } else {
-//                    if (is_string($style->fill)) {
-//                        /** @var LinearGradient|RadialGradient $gradient */
-//                        $gradient = $this->getDocument()->getDef($style->fill);
-//
-//                        var_dump($gradient->getStops());
-//                    }
-
-                    $surface->fill();
-                }
-            }
-            elseif ($stroke) {
-                $surface->stroke();
-            }
-            else {
-                $surface->endPath();
-            }
-        }
-
-        $surface->restore();
-    }
-} 
+//                    if (is_str

@@ -1,0 +1,70 @@
+array (
+  'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+  'info' => 
+  array (
+    'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+    'content_type' => 'application/json; charset=utf-8',
+    'http_code' => 200,
+    'header_size' => 813,
+    'request_size' => 1054,
+    'filetime' => -1,
+    'ssl_verify_result' => 0,
+    'redirect_count' => 0,
+    'total_time' => 0.354271,
+    'namelookup_time' => 0.004129,
+    'connect_time' => 0.050513,
+    'pretransfer_time' => 0.050545,
+    'size_upload' => 848.0,
+    'size_download' => 225.0,
+    'speed_download' => 635.0,
+    'speed_upload' => 2393.0,
+    'download_content_length' => 225.0,
+    'upload_content_length' => 848.0,
+    'starttransfer_time' => 0.354252,
+    'redirect_time' => 0.0,
+    'redirect_url' => '',
+    'primary_ip' => '185.185.56.189',
+    'certinfo' => 
+    array (
+    ),
+    'primary_port' => 80,
+    'local_ip' => '192.168.122.202',
+    'local_port' => 39916,
+  ),
+  'params' => 
+  array (
+    'method' => 'crm.lead.add',
+    'params' => 
+    array (
+      'fields' => 
+      array (
+        'TITLE' => 'Регистрация нового пользователя на сайте',
+        'SOURCE_ID' => 3,
+        'NAME' => 'Тест ',
+        'PHONE' => 
+        array (
+          'n0' => 
+          array (
+            'VALUE' => '',
+            'VALUE_TYPE' => 'MOBILE',
+          ),
+        ),
+        'COMMENTS' => 'ТЕСТ. Для активации пользователя перейдите по <a href="https://mege-alpha.dev.4rome.ru/confirmUser/?userLogin=nikitвa.t@4rome.ru">ссылке</a>',
+        'ASSIGNED_BY_ID' => 6391,
+      ),
+    ),
+  ),
+  'result' => 
+  array (
+    'result' => 68042,
+    'time' => 
+    array (
+      'start' => 1686827650.827458,
+      'finish' => 1686827651.056411,
+      'duration' => 0.22895312309265137,
+      'processing' => 0.19492697715759277,
+      'date_start' => '2023-06-15T14:14:10+03:00',
+      'date_finish' => '2023-06-15T14:14:11+03:00',
+    ),
+  ),
+)

@@ -55,6 +55,7 @@
 
 		addtobasketAction(productId, quantity)
 		{
+			console.log(123);
 			return new Promise((resolve, reject) => {
 				BX.ajax.runComponentAction(
 					'redsign:b2bportal.catalog.search.article',

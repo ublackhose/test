@@ -18,9 +18,7 @@ $this->setFrameMode(true);
 ?>
 
 
-<h2>
-    Вопрос - ответ
-</h2>
+
 
 <div class="widget-content">
     <div class="widget-items" data-role="items">

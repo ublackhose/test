@@ -50,6 +50,4 @@ foreach ($arResult['STORES'] as $pid => $arProperty)
     $iStoreId = $arProperty['ID'];
     $arTemp = $arStores[$iStoreId];
     $arResult['STORES'][$pid]['NAME'] = $arTemp['TITLE'];
-    $arResult['STORES'][$pid]['ADDRESS'] = $arTemp['ADDRESS'];
-    $arResult['STORES'][$pid]['SHOW'] = ($arParams['SHOW_EMPTY_STORE'] == 'N' && isset($arProperty['REAL_AMOUNT']) && $arProperty['REAL_AMOUNT'] <= 0) ? false : true;
-}
+    $arR

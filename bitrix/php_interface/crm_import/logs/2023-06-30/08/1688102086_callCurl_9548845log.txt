@@ -1,0 +1,70 @@
+array (
+  'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+  'info' => 
+  array (
+    'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+    'content_type' => 'application/json; charset=utf-8',
+    'http_code' => 200,
+    'header_size' => 813,
+    'request_size' => 1015,
+    'filetime' => -1,
+    'ssl_verify_result' => 0,
+    'redirect_count' => 0,
+    'total_time' => 0.301218,
+    'namelookup_time' => 0.004102,
+    'connect_time' => 0.026883,
+    'pretransfer_time' => 0.026903,
+    'size_upload' => 809.0,
+    'size_download' => 223.0,
+    'speed_download' => 740.0,
+    'speed_upload' => 2685.0,
+    'download_content_length' => 223.0,
+    'upload_content_length' => 809.0,
+    'starttransfer_time' => 0.301206,
+    'redirect_time' => 0.0,
+    'redirect_url' => '',
+    'primary_ip' => '185.185.56.189',
+    'certinfo' => 
+    array (
+    ),
+    'primary_port' => 80,
+    'local_ip' => '192.168.122.202',
+    'local_port' => 50022,
+  ),
+  'params' => 
+  array (
+    'method' => 'crm.lead.add',
+    'params' => 
+    array (
+      'fields' => 
+      array (
+        'TITLE' => 'Регистрация нового пользователя на сайте',
+        'SOURCE_ID' => 3,
+        'NAME' => 'test',
+        'PHONE' => 
+        array (
+          'n0' => 
+          array (
+            'VALUE' => '',
+            'VALUE_TYPE' => 'MOBILE',
+          ),
+        ),
+        'COMMENTS' => 'ТЕСТ. Для активации пользователя перейдите по <a href="https://r1.mege-alpha.dev.4rome.ru/confirmUser/?userLogin=test">ссылке</a>',
+        'ASSIGNED_BY_ID' => 6391,
+      ),
+    ),
+  ),
+  'result' => 
+  array (
+    'result' => 68051,
+    'time' => 
+    array (
+      'start' => 1688102086.60853,
+      'finish' => 1688102086.814861,
+      'duration' => 0.2063310146331787,
+      'processing' => 0.16346502304077148,
+      'date_start' => '2023-06-30T08:14:46+03:00',
+      'date_finish' => '2023-06-30T08:14:46+03:00',
+    ),
+  ),
+)

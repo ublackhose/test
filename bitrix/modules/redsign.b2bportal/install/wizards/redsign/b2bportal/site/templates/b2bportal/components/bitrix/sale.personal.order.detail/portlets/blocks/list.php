@@ -13,6 +13,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
 
 
+
 if (!empty($arResult['BASKET']))
 {
 	$isCollapsed = in_array('list', $arResult['COLLAPSED_BLOCKS']);
@@ -35,6 +36,8 @@ if (!empty($arResult['BASKET']))
 				<th class="text-right"><?= Loc::getMessage('SPOD_ORDER_PRICE')?></th>
 			</tr>
 			</thead>
+
+
 			<tbody>
 			<?
 			foreach ($arResult['BASKET'] as $basketItem)
