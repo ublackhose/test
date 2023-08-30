@@ -148,84 +148,91 @@
 
         var _h = _vm.$createElement;
 
+
         var _c = _vm._self._c || _h;
 
-        return _c("vue-table", {
-            attrs: {
-                isLoading: _vm.isLoading,
-                mode: _vm.mode,
-                columns: _vm.columns,
-                rows: _vm.preparedRows,
-                totalRows: _vm.totalRows,
-                selectOptions: _vm.selectOptions,
-                paginationOptions: _vm.paginationOptions,
-                sortOptions: _vm.sortParams
-            },
-            on: {
-                "on-page-change": _vm.onPageChange,
-                "on-per-page-change": _vm.onPerPageChange,
-                "on-sort-change": _vm.onChangeSort,
-                "on-selected-rows-change": _vm.selectionChanged
-            },
-            scopedSlots: _vm._u([{
-                key: "table-row",
-                fn: function fn(props) {
-                    return [props.column.field == "NAME" ? [_c("a", {
-                        attrs: {
-                            href: props.row.detail_page_url
-                        },
-                        domProps: {
-                            innerHTML: _vm._s(props.row.NAME)
+        console.log(_vm._u);
+        return _c("div", {staticClass: "aaaaaaaaaaaaaa"}, [_c("vue-table", {
+                    attrs: {
+                        isLoading: _vm.isLoading,
+                        mode: _vm.mode,
+                        columns: _vm.columns,
+                        rows: _vm.preparedRows,
+                        totalRows: _vm.totalRows,
+                        selectOptions: _vm.selectOptions,
+                        paginationOptions: _vm.paginationOptions,
+                        sortOptions: _vm.sortParams
+                    },
+                    on: {
+                        "on-page-change": _vm.onPageChange,
+                        "on-per-page-change": _vm.onPerPageChange,
+                        "on-sort-change": _vm.onChangeSort,
+                        "on-selected-rows-change": _vm.selectionChanged
+                    },
+                    scopedSlots: _vm._u([{
+                        key: "table-row",
+                        fn: function fn(props) {
+
+                            console.log(props.row);
+
+
+                            return [props.column.field == "NAME" ? [_c("a", {
+                                        attrs: {
+                                            href: props.row.detail_page_url
+                                        },
+                                        domProps: {
+                                            innerHTML: _vm._s(props.row.NAME)
+                                        }
+                                    })] : props.column.field == "VALUE" ? [_c("span", {
+                                        staticClass: "text-nowrap",
+                                        domProps: {
+                                            innerHTML: _vm._s(props.row.VALUE)
+                                        }
+                                    })] : props.column.field == "actions" ? [_c("div", {
+                                                staticClass: "dropdown position-static"
+                                            }, [_c("a", {
+                                                staticClass: "btn btn-sm btn-clean btn-icon btn-icon-md",
+                                                attrs: {
+                                                    "data-toggle": "dropdown",
+                                                    role: "button",
+                                                    href: "#",
+                                                    "aria-expanded": "false"
+                                                }
+                                            }, [_c("i", {
+                                                staticClass: "la la-ellipsis-h"
+                                            })]), _vm._v(" "), _c("div", {
+                                                staticClass: "dropdown-mensu dropdown-menu-right"
+                                            }, [_c("ul", {
+                                                staticClass: "kt-nav"
+                                            }, [_c("li", {
+                                                staticClass: "kt-nav__item"
+                                            }, [_c("a", {
+                                                staticClass: "kt-nav__link",
+                                                attrs: {
+                                                    href: props.row.delete_page_url
+                                                }
+                                            }, [_c("i", {
+                                                staticClass: "kt-nav__link-icon flaticon2-trash"
+                                            }), _vm._v(" "), _c("span", {
+                                                staticClass: "kt-nav__link-text"
+                                            }, [_vm._v(_vm._s(_vm.messages.REMOVE))])])]),
+                                                _vm._v(" "), _c("li", {
+                                                    staticClass: "kt-nav__item"
+                                                }, [_c("a", {
+                                                    staticClass: "kt-nav__link",
+                                                    attrs: {
+                                                        href: props.row.copy_page_url
+                                                    }
+                                                }, [_c("i", {
+                                                    staticClass: "kt-nav__link-icon flaticon2-copy"
+                                                }), _vm._v(" "), _c("span", {
+                                                    staticClass: "kt-nav__link-text"
+                                                }, [_vm._v(_vm._s(_vm.messages.COPY))])])])])])])] :
+                                            [_vm._v("\n\t\t\t" + _vm._s(props.formattedRow[props.column.field]) + "\n\t\t")]];
                         }
-                    })] : props.column.field == "VALUE" ? [_c("span", {
-                        staticClass: "text-nowrap",
-                        domProps: {
-                            innerHTML: _vm._s(props.row.VALUE)
-                        }
-                    })] : props.column.field == "actions" ? [_c("div", {
-                                staticClass: "dropdown position-static"
-                            }, [_c("a", {
-                                staticClass: "btn btn-sm btn-clean btn-icon btn-icon-md",
-                                attrs: {
-                                    "data-toggle": "dropdown",
-                                    role: "button",
-                                    href: "#",
-                                    "aria-expanded": "false"
-                                }
-                            }, [_c("i", {
-                                staticClass: "la la-ellipsis-h"
-                            })]), _vm._v(" "), _c("div", {
-                                staticClass: "dropdown-menu dropdown-menu-right"
-                            }, [_c("ul", {
-                                staticClass: "kt-nav"
-                            }, [_c("li", {
-                                staticClass: "kt-nav__item"
-                            }, [_c("a", {
-                                staticClass: "kt-nav__link",
-                                attrs: {
-                                    href: props.row.delete_page_url
-                                }
-                            }, [_c("i", {
-                                staticClass: "kt-nav__link-icon flaticon2-trash"
-                            }), _vm._v(" "), _c("span", {
-                                staticClass: "kt-nav__link-text"
-                            }, [_vm._v(_vm._s(_vm.messages.REMOVE))])])]),
-                                _vm._v(" "), _c("li", {
-                                    staticClass: "kt-nav__item"
-                                }, [_c("a", {
-                                    staticClass: "kt-nav__link",
-                                    attrs: {
-                                        href: props.row.copy_page_url
-                                    }
-                                }, [_c("i", {
-                                    staticClass: "kt-nav__link-icon flaticon2-copy"
-                                }), _vm._v(" "), _c("span", {
-                                    staticClass: "kt-nav__link-text"
-                                }, [_vm._v(_vm._s(_vm.messages.COPY))])])])])])])] :
-                            [_vm._v("\n\t\t\t" + _vm._s(props.formattedRow[props.column.field]) + "\n\t\t")]];
-                }
-            }])
-        });
+                    }])
+                })]
+        );
     };
 
     var __vue_staticRenderFns__ = [];

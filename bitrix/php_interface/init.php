@@ -420,26 +420,8 @@ function raschet_volume($weight)
 
 /*Событие для добавление обьема при создании/обновлении товара  START*/
 
-AddEventHandler("iblock", "OnPriceUpdate", "UpdateVolume");
 
-
-function UpdateVolume(&$arFields)
-{
-    $element = $arFields['PRODUCT_ID'];    //ID товара
-    file_put_contents($_SERVER['DOCUMENT_ROOT']."/lol.log",print_r($arFields,true));
-    \Bitrix\Main\Loader::includeModule('catalog');
-    $db_measure = CCatalogMeasureRatio::getList(
-        array(),
-        $arFilter = array('PRODUCT_ID' => 13380),
-        false,
-        false
-    );
-    $ar_measure = $db_measure->Fetch();
-
-    CCatalogMeasureRatio::update($ar_measure['ID'], array("RATIO" => 4));
-}
-
-/*Событие для добавление обьема при создании/обновлении товара  END*/
+/*Событие индексации товара START*/
 
 AddEventHandler("search", "BeforeIndex", "BeforeIndexHandler");
 function BeforeIndexHandler($arFields)
@@ -473,6 +455,50 @@ function BeforeIndexHandler($arFields)
     }
 
     return $arFields;
+}
+
+/*Событие индексации товара END*/
+
+function SendNotificationOrder()
+{
+    $dbRes = \Bitrix\Sale\Order::getList([
+        'select' => ['ID', 'DATE_INSERT'],
+        'filter' => [
+            "PAYED" => "Y", //оплаченные
+            "CANCELED" => "N", //не отмененные
+        ],
+        'order' => ['ID' => 'DESC']
+    ]);
+    while ($orderad = $dbRes->fetch()) {
+        $order = \Bitrix\Sale\Order::load($orderad['ID']);
+        $propertyCollection = $order->getPropertyCollection();
+        $property = $propertyCollection->getUserEmail();
+        $email = $property->getValue();
+        $property = $propertyCollection->getItemByOrderPropertyCode("DATE_DELIVERY");
+        $date_cur = $property->getValue();
+        $date = substr(date('d.m.Y', strtotime($order->date . '1 day')), 0, 10);
+        $strEmail = COption::GetOptionString('main', 'email_from');
+        if ($date == $date_cur) {
+            mail(
+                $email,
+                "Заказ №" . $orderad['ID'] . " скоро будет отгружен",
+                "Информационное сообщение сайта " . "r1.mege-alpha.dev.4rome.ru" . "<br>
+ ------------------------------------------<br>
+ <br>
+ Заказ номер " . $orderad['ID'] . " от " . $orderad['DATE_INSERT']->format("d.m.Y") . " готов к отгрузке/доставке.<br>
+ <br>
+ Для получения подробной информации и выбора желаемой даты отгрузки по заказу пройдите на сайт http://r1.mege-alpha.dev.4rome.ru/personal/orders/" . $orderad['ID'] . "/<br>
+ <br>
+#SITE_NAME#",
+                "From: " . $strEmail . "\r\n" .
+                "CC: " . $email . "MIME-Version: 1.0" . "\r\n" . "Content-type:text/html;charset=UTF-8" . "\r\n"
+            );
+        }
+    }
+
+
+    file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/lol.log', "Я сделал");
+    return true;
 }
 
 
