@@ -11,7 +11,7 @@ $newformat = date('d.m.Y',$date_input);
 $dbRes = \Bitrix\Sale\PropertyValueCollection::getList([
     'select' => ['*'],
     'filter' => [
-        '=ORDER_ID' => 123,
+        '=ORDER_ID' => $_REQUEST['ID'],
     ]
 ]);
 
