@@ -20,6 +20,7 @@ export async function action(actionName, data)
 	catch (e)
 	{
 		global.toastr.error(((e.errors || [])[0] || {}).message);
+		console.log(123);
 		throw e;
 	}
 

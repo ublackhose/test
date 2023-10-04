@@ -155,11 +155,11 @@ while ($ob = $res->GetNextElement()) {
         <span>
             <span>
                 <a href="#" class="d-inline-block">
-                    <span class="kt-badge kt-badge--inline kt-badge--pill text-nowrap kt-badge--<?=$ar_res["PRODUCT"]["QUANTITY"]>0?"warning":"danger"?>">
+                    <span class="kt-badge kt-badge--inline kt-badge--pill text-nowrap kt-badge--<?=$ar_res["PRODUCT"]["QUANTITY"] > 0 ?"warning":"danger"?>">
 
 
                         <?
-                        if(!$ar_res["PRODUCT"]["QUANTITY"]){
+                        if($ar_res["PRODUCT"]["QUANTITY"] <= 0){
                             echo "Под заказ";
                         }else{
                             echo $ar_res["PRODUCT"]["QUANTITY"]."шт";

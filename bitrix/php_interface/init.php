@@ -1,7 +1,8 @@
 <?
 
 use Bitrix\Sale;
-
+use Bitrix\Main\Application;
+use Bitrix\Main\Web\Cookie;
 
 define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"] . "/log.txt");
 define("SHOW_RATIO_PRICE", 1); // 1 - только RATIO_PRICE, 2 - все выбранные цены + RATIO, 3 - только выбранные 
@@ -10,7 +11,6 @@ AddEventHandler("main", "OnBeforeUserLogin", array("CUserEx", "onBeforeUserLogin
 AddEventHandler("main", "OnBeforeUserRegister", array("CUserEx", "deactivateUser"));
 AddEventHandler("main", "OnAfterUserLogout", array("CUserEx", "logoutUser"));
 AddEventHandler("main", "OnAfterUserAuthorize", array("CUserEx", "openMainAfterAuth"));
-
 
 require_once __DIR__ . '/crm_import/crest.php';
 
@@ -39,7 +39,6 @@ function addCustomDeliveryServices()
 
 /* Смена статуса заказа на проверку менеджера при изменении способа оплаты начало*/
 
-
 AddEventHandler("sale", "OnBeforeOrderUpdate", "checkOrder");
 function checkOrder($id, $arFields)
 {
@@ -50,12 +49,53 @@ function checkOrder($id, $arFields)
         ]
     ]);
 
-
     $item = $dbRes->fetch();
 
     if ($item['PAY_SYSTEM_ID'] != $arFields['PAY_SYSTEM_ID']) {
         if ($arFields['STATUS_ID'] != 'N') {
             CSaleOrder::StatusOrder($id, "N");
+        }
+    }
+    if ($arFields['STATUS_ID'] == 'K') {
+        $order = \Bitrix\Sale\Order::load($id);
+        $propertyCollection = $order->getPropertyCollection();
+        $property = $propertyCollection->getItemByOrderPropertyCode("TRACKING_URL");
+        $tu = $property->getValue();
+
+        $property = $propertyCollection->getItemByOrderPropertyCode("TRACKING_NUMBER");
+        $tn = $property->getValue();
+
+        $orderad = $order->getFields()->getValues();
+        if ($tu && $tn) {
+            $property = $propertyCollection->getUserEmail();
+            $email = $property->getValue();
+
+            $result = \Bitrix\Sale\Delivery\Services\Table::getList(array(
+                'filter' => array('ACTIVE' => 'Y', 'ID' => $order->getDeliverySystemId()[0]),
+            ));
+
+            if ($delivery = $result->fetch()) {
+                $delivery = $delivery['NAME'];
+            }
+
+            file_put_contents($_SERVER['DOCUMENT_ROOT'] . "/lol.log", $email, 8);
+            $strEmail = COption::GetOptionString('main', 'email_from');
+
+            mail(
+                $email,
+                "Заказ №" . $id . " передан в доставку",
+                "Информационное сообщение сайта " . $_SERVER['HTTP_HOST'] . "<br>
+ ------------------------------------------<br>
+ <br>
+ Заказ номер " . $id . " от " . $orderad['DATE_INSERT']->format("d.m.Y") . " передан в доставку." . $delivery . "<br>
+ <br>
+ Ваш токен:" . $tn . " Ссылка для отслеживания: " . $tu . "
+ <br>",
+                "From: " . $strEmail . "\r\n" .
+                "CC: " . $email . "MIME-Version: 1.0" . "\r\n" . "Content-type:text/html;charset=UTF-8" . "\r\n"
+            );
+
+            CSaleOrder::StatusOrder($id, 'D');
         }
     }
 }
@@ -65,16 +105,82 @@ function checkOrder($id, $arFields)
 
 /* НАЧАЛО Обработчик при оформлении заказа НАЧАЛО*/
 
-AddEventHandler("sale", "OnSaleOrderBeforeSaved", "addOrderToList");
+use Bitrix\Main;
 
-function addOrderToList($ENTITY, $VALUES)
+Main\EventManager::getInstance()->addEventHandler(
+    'sale',
+    'OnSaleOrderSaved',
+    'addOrderToList'
+);
+
+function addOrderToList(Main\Event $event)
 {
-    $collection = $ENTITY->getShipmentCollection()->getNotSystemItems();
+    $collection = $event->getParameter("ENTITY")->getShipmentCollection()->getNotSystemItems();
+    $isNew = $event->getParameter("IS_NEW");
 
-    foreach ($collection as $shipment) {
-        if ($shipment->getField('DELIVERY_ID') == 2) {
-            $shipment->setField('STATUS_ID', 'DT');
+    if ($isNew) {
+        foreach ($collection as $shipment) {
+            if ($shipment->getField('DELIVERY_ID') == 2) {
+                $shipment->setField('STATUS_ID', 'DT');
+            }
         }
+
+
+        if (CModule::IncludeModule('highloadblock')) {
+            $arHLBlock = Bitrix\Highloadblock\HighloadBlockTable::getById(5)->fetch();
+            $obEntity = Bitrix\Highloadblock\HighloadBlockTable::compileEntity($arHLBlock);
+            $strEntityDataClass = $obEntity->getDataClass();
+        }
+
+        if (CModule::IncludeModule('highloadblock')) {
+            $rsData = $strEntityDataClass::getList(array(
+                'select' => array('ID', 'UF_BASKET', 'UF_PRODUCTS'),
+                'order' => array('ID' => 'ASC'),
+                'limit' => '50',
+            ));
+            while ($arItem = $rsData->Fetch()) {
+                if ($arItem['UF_BASKET'] == Bitrix\Sale\Fuser::getId()) {
+                    $par['ID'] = $arItem['ID'];
+                    $par['UF_BASKET'] = $arItem['UF_BASKET'];
+                    $par['UF_PRODUCTS'] = $arItem['UF_PRODUCTS'];
+                }
+            }
+        }
+
+        $articules = null;
+        $pars = json_decode($par['UF_PRODUCTS']);
+
+
+
+        foreach ($pars as $item){
+            $res_2 = CIBlockElement::GetProperty(5, $item, "sort", "asc", array("CODE" => "CML2_ARTICLE"));
+            if($ar_props = $res_2->Fetch())
+                $articules[] = $ar_props["VALUE"];
+        }
+
+
+        $order = $event->getParameter("ENTITY");
+        $collection = $order->getPropertyCollection();
+        $propertyValue = $collection->getItemByOrderPropertyCode('PRODUCTS_NO_PRICE');
+        if(is_array($articules)){
+            $r = $propertyValue->setField('VALUE', implode(",",$articules));
+        }else{
+            $r = $propertyValue->setField('VALUE', $articules);
+        }
+
+
+
+
+        $arElementFields = array(
+            'UF_BASKET' => Bitrix\Sale\Fuser::getId(),
+            'UF_PRODUCTS' => ""
+        );
+
+        if($arElementFields){
+            $obResult = $strEntityDataClass::update($par['ID'], $arElementFields);
+        }
+
+        $order->save();
     }
 }
 
@@ -158,6 +264,8 @@ function sendUserToCrm($arFields)
         ]
     );
 
+    file_put_contents(__DIR__.'/$result.log', print_r($result, true));
+
     return $data;
 }
 
@@ -165,7 +273,6 @@ class CUserEx
 {
     static function onBeforeUserLogin($arFields)
     {
-        // file_get_contents('user1.log', print_r($arFields,1));
         $filter = array("EMAIL" => $arFields["LOGIN"]);
         $rsUsers = CUser::GetList(($by = "LAST_NAME"), ($order = "asc"), $filter);
         if ($user = $rsUsers->GetNext()) {
@@ -190,6 +297,14 @@ class CUserEx
 
     static function openMainAfterAuth($arUser)
     {
+        $cookie = new Cookie("PDZSHOW", 1);
+        $cookie->setHttpOnly(false);
+        $cookie->setSecure(false);
+
+        \Bitrix\Main\Context::getCurrent()->getResponse()->addCookie(
+            $cookie
+        );
+        
         $groups = CUser::GetUserGroup($arUser['user_fields']['ID']);
         if (!in_array(11, $groups)) {
             LocalRedirect('/');
@@ -448,7 +563,8 @@ function BeforeIndexHandler($arFields)
                 }
             }
 
-            $arFields["TITLE"] .= " " . implode(' ', $arr_sku) . "";
+            $arFields["TITLE"] = " " . $arFields["TITLE"] . "  артикул: " . $ar_props["VALUE"];
+            file_put_contents($_SERVER['DOCUMENT_ROOT'] . "/lol.log", ($arFields["TITLE"] . "\n"), 8);
             unset($sku);
             unset($arr_sku);
         }
@@ -482,7 +598,7 @@ function SendNotificationOrder()
             mail(
                 $email,
                 "Заказ №" . $orderad['ID'] . " скоро будет отгружен",
-                "Информационное сообщение сайта " . "r1.mege-alpha.dev.4rome.ru" . "<br>
+                "Информационное сообщение сайта " . $_SERVER['HTTP_HOST'] . "<br>
  ------------------------------------------<br>
  <br>
  Заказ номер " . $orderad['ID'] . " от " . $orderad['DATE_INSERT']->format("d.m.Y") . " готов к отгрузке/доставке.<br>
@@ -495,11 +611,178 @@ function SendNotificationOrder()
             );
         }
     }
-
-
-    file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/lol.log', "Я сделал");
     return true;
 }
 
+
+/*УБЕР ГИПЕР ПРОГА С РЕСТ АПИ*/
+
+
+\Bitrix\Main\Loader::includeModule('iblock');
+
+class NewsIBlockController extends \Bitrix\Iblock\Controller\DefaultElement
+{
+    protected function getDefaultPreFilters(): array
+    {
+        return [];
+    }
+
+    //метод определяющий какие поля разрешены для запроса через REST
+    public static function getAllowedList(): array
+    {
+        return ['ID', 'IBLOCK_ID', "DETAIL_TEXT", "DETAIL_PICTURE", 'NAME'];
+    }
+}
+
+
+$serviceName = 'iblock.element.RedsignB2bportalSystemDocsS1.rest.controller';
+$serviceConfig = [
+    'constructor' => static function () {
+        return new \NewsIBlockController();
+    },
+];
+
+$serviceLocator = \Bitrix\Main\DI\ServiceLocator::getInstance();
+
+try {
+    $serviceLocator->addInstanceLazy($serviceName, $serviceConfig);
+    if ($serviceLocator->has('iblock.element.RedsignB2bportalSystemDocsS1.rest.controller')) {
+        //проверка успешной регистрации сервиса
+        $newsService = $serviceLocator->get('iblock.element.RedsignB2bportalSystemDocsS1.rest.controller');
+        AddMessage2Log(print_r($newsService->getElementEntityAllowedList(), true));
+    }
+} catch (Exception $e) {
+    AddMessage2Log($serviceName . " error - " . $e->getMessage());
+}
+
+/*УБЕР ГИПЕР ПРОГА С РЕСТ АПИ*/
+
+
+/*Событие кратности*/
+AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "OnAfterIBlockElementUpdateHandler");
+function OnAfterIBlockElementUpdateHandler(&$arFields)
+{
+    \Bitrix\Main\Loader::includeModule('catalog');
+    // проверяем единицы измерения, если == м2, то изменяем коэфициент с 1 на 0.001
+    if (CModule::IncludeModule("sale") && CModule::IncludeModule("iblock")) {
+        $r = CCatalogMeasureRatio::getList(
+            $arOrder = array(),
+            $arFilter = array("PRODUCT_ID" => $arFields["ID"]),
+            $arGroupBy = false,
+            $arNavStartParams = false,
+            $arSelectFields = array()
+        );
+
+        if ($ar_r = $r->GetNext()) {
+            $db_res = CCatalogMeasureRatio::update($ar_r["ID"], array("RATIO" => 2));
+        }
+    }
+
+    file_put_contents($_SERVER['DOCUMENT_ROOT'] . "/lol.log", print_r($ar_r, true));
+}
+
+
+/*Событие кратности*/
+
+
+
+\Bitrix\Main\EventManager::getInstance()->addEventHandlerCompatible(
+    'catalog',
+    'OnSuccessCatalogImport1C',
+    'OnSuccessCatalogImport1CHandler'
+);
+
+function OnSuccessCatalogImport1CHandler() {
+    $res = CIBlockElement::GetList([], [
+        "IBLOCK_ID" => 5
+    ], false, false, [
+        'ID', 'IBLOCK_ID', 'NAME'
+    ]);
+    
+    
+    while ($ob = $res->GetNextElement()){
+        $arFields = $ob->GetFields(); // поля элемента
+    
+        $obPrice = new CPrice;
+        $resPrice = $obPrice->GetList([], ["PRODUCT_ID" => $arFields['ID']]);
+        
+        $priceHidden = [ '4','6','5' ];
+    
+        while ($arPrice = $resPrice->Fetch()) {
+            if (in_array($arPrice['CATALOG_GROUP_ID'], $priceHidden) && !empty($arPrice['PRICE'])) {
+                
+                $price = CCurrencyRates::ConvertCurrency($arPrice['PRICE'], $arPrice['CURRENCY'], 'RUB');
+    
+                $arFieldsForPrice = [
+                    "PRODUCT_ID"       => $arFields['ID'],
+                    "CATALOG_GROUP_ID" => 7,
+                    "PRICE"            => $price,
+                    "CURRENCY"         => "RUB",
+                ];
+                
+                if ($arPrice = $resPrice->Fetch()) {
+                    $obPrice->Update($arPrice["ID"], $arFieldsForPrice);
+                } else {
+                    $obPrice->Add($arFieldsForPrice);
+                }
+            }
+        }
+    }
+}
+
+/*Создание и Обновление элементов документов*/
+
+AddEventHandler("iblock", "OnAfterIBlockElementAdd", "OnAfterIBlockElementAddHandler");
+AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "OnAfterIBlockElementAddHandler");
+
+function OnAfterIBlockElementAddHandler(&$arFields)
+{
+//    file_put_contents($_SERVER['DOCUMENT_ROOT']."/lol.log",print_r($arFields,true));
+    if($arFields['RESULT'] == 1 && $arFields['IBLOCK_ID'] == 3){
+        $db_props = CIBlockElement::GetProperty($arFields['IBLOCK_ID'], $arFields['ID'], array("sort" => "asc"), Array("CODE"=>"TYPE"));
+        $check = true;
+        if(!($ar_type = $db_props->Fetch()))
+            $check = false;
+
+
+        $db_props = CIBlockElement::GetProperty($arFields['IBLOCK_ID'], $arFields['ID'], array("sort" => "asc"), Array("CODE"=>"ORDER_ID"));
+
+
+
+        $db_props = CIBlockElement::GetProperty($arFields['IBLOCK_ID'], $arFields['ID'], array("sort" => "asc"), Array("CODE"=>"COMPANY_INN"));
+
+        if(!($inn = $db_props->Fetch()))
+            $check = false;
+
+        file_put_contents($_SERVER['DOCUMENT_ROOT']."/lol.log",print_r($inn,true));
+
+
+
+
+        if((($ar_type['VALUE'] == 303 || $ar_type['VALUE_ENUM'] == "Акт сверки" ) || ($ar_type['VALUE'] == 5 || $ar_type['VALUE_ENUM'] == "Акт выполненных работ")) && $check){
+
+
+            $dbRes = \Bitrix\Sale\Order::getList([
+                'select' => ['ID'],
+                'filter' => [
+                    "CANCELED" =>"N", //не отмененные
+                    "PROPERTY.ORDER_PROPS_ID" => 10, //по свойству
+                    "PROPERTY.VALUE" => $inn['VALUE'], //и по его значению
+                ],
+                'order' => ['ID' => 'DESC']
+            ]);
+
+            while ($orr = $dbRes->fetch()) {
+                $order = \Bitrix\Sale\Order::load($orr['ID']);
+                $collection = $order->getPropertyCollection();
+                $propertyValue = $collection->getItemByOrderPropertyCode("ISAСT");
+                $propertyValue->setField('VALUE', 'N');
+                $order->save();
+            }
+
+        }
+
+    }
+}
 
 ?>

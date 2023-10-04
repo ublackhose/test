@@ -20,24 +20,20 @@ $converter = Converter::toJson();
 
 $jsResult = [];
 
-foreach ($arResult['CATEGORIES'] as $categoryId => $category)
-{
+foreach ($arResult['CATEGORIES'] as $categoryId => $category) {
     $items = [];
 
-    foreach ($category['ITEMS'] as $searchItem)
-    {
+    foreach ($category['ITEMS'] as $searchItem) {
         if ($searchItem['TYPE'] == 'all') continue;
 
-        if (isset($arResult["ELEMENTS"][$searchItem['ITEM_ID']]))
-        {
+        if (isset($arResult["ELEMENTS"][$searchItem['ITEM_ID']])) {
             $catalogItem = $arResult['ELEMENTS'][$searchItem['ITEM_ID']];
 
             $iblockId = $catalogItem['IBLOCK_ID'];
 
             $vendorCode = '';
             $vendorCodeProperty = $arResult['ARTICLE_PROP_CODES'][$iblockId];
-            if (isset($catalogItem['PROPERTY_' . $vendorCodeProperty . '_VALUE']))
-            {
+            if (isset($catalogItem['PROPERTY_' . $vendorCodeProperty . '_VALUE'])) {
                 $vendorCode = $catalogItem['PROPERTY_' . $vendorCodeProperty . '_VALUE'];
             }
 

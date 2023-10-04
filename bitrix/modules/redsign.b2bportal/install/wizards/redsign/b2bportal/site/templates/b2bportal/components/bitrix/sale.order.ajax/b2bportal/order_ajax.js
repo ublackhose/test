@@ -5503,6 +5503,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			var extraServices = [], brake = false,
 				i, currentService, serviceNode, serviceName, input;
 
+
 			for (i in delivery.EXTRA_SERVICES)
 			{
 				if (!delivery.EXTRA_SERVICES.hasOwnProperty(i))
@@ -5522,6 +5523,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 					if (i == 0)
 						brake = true;
+
 
 					serviceNode = BX.create('DIV', {
 						props: {className: 'form-group bx-soa-pp-field'},

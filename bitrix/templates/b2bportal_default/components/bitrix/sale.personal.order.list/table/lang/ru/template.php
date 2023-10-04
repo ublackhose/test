@@ -17,6 +17,7 @@ $MESS['RS_B2BPORTAL_SPOL_FILTER_PAYED'] = 'Оплачено';
 $MESS['SPOL_TPL_PAID'] = 'Оплачено';
 $MESS['SPOL_TPL_NOTPAID'] = 'Не оплачено';
 $MESS["SPOL_TPL_REPEAT_ORDER"] = "Повторить заказ";
+$MESS["SUP_TICKET_NOT_FOUND"] = "FFFFFFFFFFFFFFFFFFFF";
 
 $MESS["SPOL_TPL_UPDATE_ORDER"] = "Изменить заказ";
 $MESS["SPOL_TPL_CANCEL_ORDER"] = "Отменить заказ";

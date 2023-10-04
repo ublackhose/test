@@ -350,7 +350,7 @@ export default {
 			}
 			catch(e)
 			{
-				console.error(e);
+        console.error(123);
 			}
 		}
 	},

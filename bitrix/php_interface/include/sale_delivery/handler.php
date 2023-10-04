@@ -3,6 +3,7 @@ namespace Sale\Handlers\Delivery;
 use Bitrix\Sale\Delivery\CalculationResult;
 use Bitrix\Sale\Delivery\Services\Base;
 use Bitrix\Main;
+use Bitrix\Main\Error;
 include_once ($_SERVER["DOCUMENT_ROOT"].'/majored.php');
 
 
@@ -23,10 +24,9 @@ class CustomHandler extends Base
     protected function calculateConcrete(\Bitrix\Sale\Shipment $shipment)
     {
 
-        define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log.txt");
 
 
-        $weight = $shipment->getWeight()/1000; // вес отгрузки
+        $weight = $shipment->getWeight()/1000000; // вес отгрузки
 
         $order = $shipment->getCollection()->getOrder(); // заказ
         $price = $order->getPrice();
@@ -46,12 +46,12 @@ class CustomHandler extends Base
             $result = new CalculationResult();
             $result->setDeliveryPrice($res['Tariff']+$res['Insurance']);
             $result->setPeriodDescription('от '.$res['DeliveryTime'].' день');
+
             return $result;
         }else{
             $result = new CalculationResult();
             $result->addError(
-                new Bitrix\Main\Error(
-                    Loc::getMessage('SALE_DLVR_BASE_DELIVERY_PRICE_CALC_ERROR'),
+                new Error(
                     'DELIVERY_CALCULATION'
                 ));
             return $result;

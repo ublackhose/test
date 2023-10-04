@@ -16,6 +16,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
 
 
+
 function getOrdersByUser(){
     if (CModule::IncludeModule('sale'))
     {
@@ -148,7 +149,10 @@ else
 
 
 
+
 	<script>
+
+
 	(function () {
 		BX.message(<?=CUtil::PhpToJSObject(Loc::loadLanguageFile(__FILE__))?>);
 
@@ -156,7 +160,7 @@ else
 		var rows = <?=\Bitrix\Main\Web\Json::encode($arResult['ROWS']); ?>;
 		var navOptions = <?=\Bitrix\Main\Web\Json::encode($arResult['NAV_OPTIONS']); ?>;
 		var sortOptions = <?=\Bitrix\Main\Web\Json::encode($arResult['SORT_OPTIONS']); ?>;
-
+        console.log(rows);
 		new B2BPortal.Components.SalePersonalOrderList(
 			document.querySelector('#<?=$blockId?>'),
 			document.querySelector('#<?=$blockId?>_container'),
@@ -169,5 +173,32 @@ else
 		);
 
 	}());
-	</script><?php
+	</script>
+
+    <style>
+        .tooltip_2 {
+            position: relative;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip_2 .tooltiptext {
+            visibility: hidden;
+            width: fit-content;
+            background-color: #253590 ;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 5px;
+            position: absolute;
+            z-index: 1;
+            top: 130%;
+            left: 50%;
+            margin-left: -60px;
+        }
+
+        .tooltip_2:hover .tooltiptext {
+            visibility: visible;
+        }
+    </style>
+    <?php
 }

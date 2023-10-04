@@ -8,11 +8,11 @@ use Bitrix\Main\Localization\Loc;
  * @var RedsignB2BPortalBasketImports $component
  * @var array $arParams
  * @var array $arResult
- * @var array $templateFolder
  */
 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
+
 
 $this->addExternalJs(SITE_TEMPLATE_PATH . '/assets/vendors/vue/vue.js');
 $this->addExternalJS($templateFolder . '/js/CodesImport.js');
@@ -53,9 +53,7 @@ $sBlockId = 'basketimports_' . $this->randString(5);
 				</button>
 			</div>
 			<div class="modal-body">
-				<div id="<?=$sBlockId?>_codes">
-
-                </div>
+				<div id="<?=$sBlockId?>_codes"></div>
 			</div>
 		</div>
 	</div>
@@ -70,7 +68,7 @@ $sBlockId = 'basketimports_' . $this->randString(5);
 					<span aria-hidden="true">?</span>
 				</button>
 			</div>
-			<div class="modal-body">
+			<div class="modal-body modal-file">
 				<div id="<?=$sBlockId?>_file"></div>
 			</div>
 		</div>
@@ -80,9 +78,34 @@ $sBlockId = 'basketimports_' . $this->randString(5);
 
 
 <script>
+    //console.log(document.querySelector("#<?//=$sBlockId?>//_fileModal"));
+    //
+    //let observer = new MutationObserver(mutationRecords => {
+    //    // console.log(mutationRecords[0].target); // console.log(изменения)
+    //    let cur = mutationRecords[0].target.querySelector(".import-items");
+    //    if(cur){
+    //        if(!(cur.querySelector(".import-item"))){
+    //            cur.innerHTML = "Товары не найдены";
+    //        }else {
+    //            if(cur.innerHTML.indexOf("Товары не найдены")!=-1){
+    //                cur.innerHTML = cur.innerHTML.replace("Товары не найдены", '');
+    //            }
+    //        }
+    //    }
+    //});
+
+    observer.observe(document.querySelector("#<?=$sBlockId?>_fileModal"), {
+        childList: true, // наблюдать за непосредственными детьми
+        subtree: true, // и более глубокими потомками
+        characterDataOldValue: true // передавать старое значение в колбэк
+    });
+</script>
+
+
+
+<script>
 <?php $messages = Loc::loadLanguageFile(__FILE__); ?>
 BX.message(<?=CUtil::PhpToJSObject($messages)?>);
-
 
 new B2BPortal.Components.BasketCodesImport({
 	el: document.getElementById('<?=$sBlockId?>_codes'),

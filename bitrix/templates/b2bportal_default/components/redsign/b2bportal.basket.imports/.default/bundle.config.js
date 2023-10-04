@@ -1,3 +1,4 @@
+
 const commonjs  = require('rollup-plugin-commonjs');
 const vue = require('rollup-plugin-vue');
 
@@ -11,7 +12,6 @@ module.exports = [
 
 		plugins: {
 			resolve: true,
-
 			custom: [
 				commonjs({ sourceMap: false }),
 				vue({ needMap: false })

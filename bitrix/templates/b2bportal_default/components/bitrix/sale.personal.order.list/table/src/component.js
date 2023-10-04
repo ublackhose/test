@@ -176,7 +176,7 @@ export class SalePersonalOrderList
 
 						<template v-else-if="props.column.field === 'STATUS_ID'">
 							<div v-if="props.row.status && props.row.status != ''">
-								<span class="kt-badge kt-badge--inline kt-badge--pill kt-badge--primary text-nowrap" :style="{'background-color': props.row.status.color}" v-html="props.row.status.name"></span>
+								<span class="lol kt-badge kt-badge--inline kt-badge--pill kt-badge--primary text-nowrap" :style="{'background-color': props.row.status.color}" v-html="props.row.status.name"><span class='tooltiptext'>123123</span></span>
 							</div>
 						</template>
 

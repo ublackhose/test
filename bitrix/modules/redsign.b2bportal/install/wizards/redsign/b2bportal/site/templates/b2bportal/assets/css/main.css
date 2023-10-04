@@ -1847,7 +1847,7 @@ table.vgt-table tr.clickable:hover {
     .vgt-wrap .vgt-table thead td:last-child,
     .vgt-wrap .vgt-table tbody th:last-child,
     .vgt-wrap .vgt-table tbody td:last-child {
-      padding-right: 25px; }
+      padding-right: 5px; }
   .vgt-wrap .vgt-table .vgt-row-expanded {
     background-color: #fafafa; }
   .vgt-wrap .vgt-table .vgt-row-expanded .vgt-wrap__footer {
@@ -1855,7 +1855,9 @@ table.vgt-table tr.clickable:hover {
   .vgt-wrap .vgt-table .vgt-row-expanded .vgt-wrap {
     -webkit-box-shadow: 0 0 15px 1px rgba(113, 106, 202, 0.1);
             box-shadow: 0 0 15px 1px rgba(113, 106, 202, 0.1); }
-
+.vgt-left-align a{
+  font-size: 10px;
+}
 .vgt-wrap .vgt-wrap__footer {
   padding: 11px 25px;
   border: none;

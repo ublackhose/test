@@ -20,7 +20,7 @@ $this->setFrameMode(true);
 $this->addExternalJs($templateFolder . '/dist/component.js');
 
 $inputId = trim($arParams["~INPUT_ID"]);
-if(!mb_strlen($inputId))
+if (!mb_strlen($inputId))
 	$inputId = 'title-search-input';
 
 $jsParams = [

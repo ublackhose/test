@@ -27,6 +27,8 @@ if($arResult['STATUS']['ID'] !='N'  ){
     }
 }
 
+if (!$_REQUEST['poshol_von']) {
+
 
 
 
@@ -143,7 +145,15 @@ $block = function ($blockName) use ($templateFolder, $component, $arResult, $arP
 	);
 }())
 </script>
+
+
+
 <?php
+
+
+}else{
+    include $_SERVER['DOCUMENT_ROOT'] . $templateFolder . '/blocks/shipment_change.php';
+}
 if ($_REQUEST['update'] == "Y") {
 
 
@@ -165,7 +175,6 @@ if ($_REQUEST['update'] == "Y") {
             </div>
     </div>
 </div>
-
 <?php
 }
 ?>

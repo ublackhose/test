@@ -1,8 +1,10 @@
 this.B2BPortal = this.B2BPortal || {};
+
 (function (exports) {
 	'use strict';
 
 	function action(_x, _x2) {
+
 	  return _action.apply(this, arguments);
 	}
 
@@ -854,6 +856,7 @@ this.B2BPortal = this.B2BPortal || {};
 	      fn: function fn(step3) {
 	        return [_vm._v("\n\t\t" + _vm._s(_vm.messages.HEADER_RS_B2BPORTAL_BI_FILE_IMPORT_STEP_3)), _c("br"), _c("br"), _vm._v(" "), !!_vm.result ? _c("div", _vm._l(_vm.result, function (basketResult, code) {
 	          return _c("div", {
+				  staticClass: "import-item",
 	            key: code
 	          }, [_c("span", {
 	            class: {

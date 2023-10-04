@@ -202,6 +202,123 @@ foreach ($arResult["SEARCH"] as $i => $arItem) {
 }
 
 
+if (!$arResult["ELEMENTS"]) {
+    $arSelect = array("ID", "NAME", "DATE_ACTIVE_FROM", "DETAIL_PAGE_URL");
+    $arFilter = array(
+        "IBLOCK_ID" => IntVal(5),
+        "ACTIVE_DATE" => "Y",
+        "ACTIVE" => "Y",
+        "NAME" => "%" . $arResult["query"] . "%"
+    );
+    $res = CIBlockElement::GetList(array(), $arFilter, false, array("nPageSize" => 5), $arSelect);
+    while ($ob = $res->GetNextElement()) {
+        $arFields = $ob->GetFields();
+        $arResult['SEARCH'][] = [
+            "NAME" => str_replace($arResult["query"], "<b>" . $arResult["query"] . "</b>", $arFields['NAME']),
+            "URL" => $arFields['DETAIL_PAGE_URL'],
+            "MODULE_ID" => "iblock",
+            "PARAM1" => "catalog",
+            "PARAM2" => "5",
+            "ITEM_ID" => $arFields['ID'],
+            "ICON" => "1",
+        ];
+
+        $ar_res = CCatalogProduct::GetByIDEx($arFields['ID']);
+
+
+
+
+        $pic = CFile::GetPath($ar_res["DETAIL_PICTURE"]);
+        $price = null;
+
+        foreach ($ar_res['PRICES'] as $key => $item){
+            if($item['CURRENCY'] == "RUB"){
+                $price = $item;
+                $price['ID'] = $key;
+            }
+        }
+
+
+        $arResult['ELEMENTS'][$arFields['ID']] = array
+        (
+            "ID" => $ar_res['ID'],
+            "NAME" => $ar_res['NAME'],
+            "IBLOCK_ID" => $ar_res['IBLOCK_ID'],
+            "PREVIEW_TEXT" => $ar_res['PREVIEW_TEXT'],
+            "PREVIEW_PICTURE" => $ar_res['PREVIEW_PICTURE'],
+            "DETAIL_PICTURE" => $ar_res['DETAIL_PICTURE'],
+            "PROPERTY_CML2_ARTICLE_VALUE" => $ar_res['PROPERTIES']['CML2_ARTICLE']['VALUE'],
+            "PROPERTY_CML2_ARTICLE_VALUE_ID" => null,
+            "PREVIEW_TEXT_TYPE" => $ar_res['PREVIEW_TEXT_TYPE'],
+            "TYPE" =>  $ar_res['PRODUCT']["TYPE"],
+            "AVAILABLE" => $ar_res['PRODUCT']["AVAILABLE"],
+            "CAN_BUY_ZERO" => $ar_res['PRODUCT']["CAN_BUY_ZERO"],
+            "CATALOG_PRICE_ID_1" => null,
+            "CATALOG_GROUP_ID_1" => "",
+            "CATALOG_PRICE_1" => null,
+            "CATALOG_CURRENCY_1" => null,
+            "CATALOG_QUANTITY_FROM_1" => null,
+            "CATALOG_QUANTITY_TO_1" => null,
+            "CATALOG_EXTRA_ID_1" => null,
+            "CATALOG_GROUP_NAME_1" => "Цена",
+            "CATALOG_CAN_ACCESS_1" => "Y",
+            "CATALOG_CAN_BUY_1" => "Y",
+            "CATALOG_QUANTITY" => $ar_res['PRODUCT']['QUANTITY'],
+            "CATALOG_QUANTITY_TRACE" => $ar_res['PRODUCT']['QUANTITY_TRACE'],
+            "CATALOG_QUANTITY_TRACE_ORIG" => $ar_res['PRODUCT']['QUANTITY_TRACE_ORIG'],
+            "CATALOG_WEIGHT" => $ar_res['PRODUCT']['WEIGHT'],
+            "CATALOG_VAT_ID" => $ar_res['PRODUCT']['VAT_ID'],
+            "CATALOG_VAT_INCLUDED" => $ar_res['PRODUCT']['VAT_INCLUDED'],
+            "CATALOG_CAN_BUY_ZERO" => $ar_res['PRODUCT']['CAN_BUY_ZERO'],
+            "CATALOG_CAN_BUY_ZERO_ORIG" => $ar_res['PRODUCT']['CAN_BUY_ZERO_ORIG'],
+            "CATALOG_PURCHASING_PRICE" => $ar_res['PRODUCT']['PURCHASING_PRICE'],
+            "CATALOG_PURCHASING_CURRENCY" => $ar_res['PRODUCT']['PURCHASING_CURRENCY'],
+            "CATALOG_QUANTITY_RESERVED" => $ar_res['PRODUCT']['QUANTITY_RESERVED'],
+            "CATALOG_SUBSCRIBE" => $ar_res['PRODUCT']['SUBSCRIBE'],
+            "CATALOG_SUBSCRIBE_ORIG" => $ar_res['PRODUCT']['SUBSCRIBE_ORIG'],
+            "CATALOG_WIDTH" => $ar_res['PRODUCT']['WIDTH'],
+            "CATALOG_LENGTH" => $ar_res['PRODUCT']['LENGTH'],
+            "CATALOG_HEIGHT" => $ar_res['PRODUCT']['HEIGHT'],
+            "CATALOG_MEASURE" => $ar_res['PRODUCT']['MEASURE'],
+            "CATALOG_TYPE" => $ar_res['PRODUCT']['TYPE'],
+            "CATALOG_AVAILABLE" => $ar_res['PRODUCT']['AVAILABLE'],
+            "CATALOG_BUNDLE" => $ar_res['PRODUCT']['BUNDLE'],
+            "CATALOG_PRICE_TYPE" => $ar_res['PRODUCT']['PRICE_TYPE'],
+            "CATALOG_RECUR_SCHEME_LENGTH" => $ar_res['PRODUCT']['RECUR_SCHEME_LENGTH'],
+            "CATALOG_RECUR_SCHEME_TYPE" => $ar_res['PRODUCT']['RECUR_SCHEME_TYPE'],
+            "CATALOG_TRIAL_PRICE_ID" => $ar_res['PRODUCT']['TRIAL_PRICE_ID'],
+            "CATALOG_WITHOUT_ORDER" => $ar_res['PRODUCT']['WITHOUT_ORDER'],
+            "CATALOG_SELECT_BEST_PRICE" => $ar_res['PRODUCT']['SELECT_BEST_PRICE'],
+            "CATALOG_NEGATIVE_AMOUNT_TRACE" => $ar_res['PRODUCT']['NEGATIVE_AMOUNT_TRACE'],
+            "CATALOG_NEGATIVE_AMOUNT_TRACE_ORIG" => $ar_res['PRODUCT']['NEGATIVE_AMOUNT_TRACE_ORIG'],
+            "CATALOG_VAT" => null,
+            "PRICES" => array(),
+            "MIN_PRICE" => null,
+            "PICTURE" => array(
+                "src" => $pic,
+                "width" => 75,
+                "height" => 75,
+                "size" => 1582,
+            )
+        );
+
+        $arResult['CATEGORIES'][0]["TITLE"] = "Каталог";
+        $arResult['CATEGORIES'][0]["ITEMS"][] = [
+            "NAME" => str_replace($arResult["query"], "<b>" . $arResult["query"] . "</b>", $arFields['NAME']),
+            "URL" => $arFields['DETAIL_PAGE_URL'],
+            "MODULE_ID" => "iblock",
+            "PARAM1" => "catalog",
+            "PARAM2" => "5",
+            "ITEM_ID" => $arFields['ID'],
+            "ICON" => "1",
+        ];
+    }
+}
+
+
+
+
+
 
 
 

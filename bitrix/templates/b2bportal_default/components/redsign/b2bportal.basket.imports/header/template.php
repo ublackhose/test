@@ -14,17 +14,19 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
 
 
+
+
 $this->addExternalJs(SITE_TEMPLATE_PATH . '/assets/vendors/vue/vue.js');
 $this->addExternalJS($templateFolder . '/js/CodesImport.js');
 $this->addExternalJS($templateFolder . '/js/FileImport.js');
 
-$sBlockId = 'basketimports_' . $this->randString(5);
+$sBlockId = 'basket_' . $this->randString(5);
 ?>
 
 
 
 <div class="header-download">
-	<div class="header-download-btn btn btn-default" aria-expanded="false" data-toggle="modal" data-target="#<?=$sBlockId?>_fileModal">
+	<div class="header-download-btn btn btn-default" aria-expanded="false" data-toggle="modal" data-target="#<?=$sBlockId?>_fileModalHead">
 		<i class="kt-nav__link-icon flaticon2-medical-records"></i>
 		<span class="kt-nav__link-text"><?=Loc::getMessage('HEADER_RS_B2BPORTAL_BI_TITLE')?></span>
 	</div>
@@ -46,7 +48,7 @@ $sBlockId = 'basketimports_' . $this->randString(5);
 	</div>
 </div>
 
-<div class="modal fade" id="<?=$sBlockId?>_fileModal">
+<div class="modal fade" id="<?=$sBlockId?>_fileModalHead">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -56,28 +58,33 @@ $sBlockId = 'basketimports_' . $this->randString(5);
 				</button>
 			</div>
 			<div class="modal-body">
-				<div id="<?=$sBlockId?>_file"></div>
+				<div id="<?=$sBlockId?>_fileHead"></div>
 			</div>
 		</div>
 	</div>
 </div>
 
+
+
 <script>
 <?php $messages = Loc::loadLanguageFile(__FILE__); ?>
 BX.message(<?=CUtil::PhpToJSObject($messages)?>);
 
-
 new B2BPortal.Components.BasketCodesImport({
-	el: document.getElementById('<?=$sBlockId?>_codes'),
+	el: document.getElementById('<?=$sBlockId?>_codesHead'),
 	signedParameters: '<?=$this->getComponent()->getSignedParameters()?>'
 });
 
 new B2BPortal.Components.BasketFileImport({
-	el: document.getElementById('<?=$sBlockId?>_file'),
-	modal: document.getElementById('<?=$sBlockId?>_fileModal'),
+	el: document.getElementById('<?=$sBlockId?>_fileHead'),
+	modal: document.getElementById('<?=$sBlockId?>_fileModalHead'),
 	signedParameters: '<?=$this->getComponent()->getSignedParameters()?>'
 });
+
+
 </script>
+
+
 
 
 

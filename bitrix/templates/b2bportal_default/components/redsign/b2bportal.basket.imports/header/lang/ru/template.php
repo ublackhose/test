@@ -33,3 +33,38 @@ $MESS['HEADER_RS_B2BPORTAL_BI_FILE_IMPORT_STEP_3'] = 'Шаг 3: Добавлен
 $MESS['HEADER_RS_B2BPORTAL_BI_BROWSE'] = 'Обзор';
 $MESS['HEADER_RS_B2BPORTAL_BI_TITLE'] = 'Загрузить заказ из .xls';
 $MESS['HEADER_RS_B2BPORTAL_BI_FILE_IMPORT_STEP_1'] = 'Шаг 1: Загрузка файла .xls';
+
+
+$MESS['RS_B2BPORTAL_BI_SELECT_TYPE'] = 'Добавить товары из';
+$MESS['RS_B2BPORTAL_BI_TYPE_CATALOG'] = 'Каталога';
+$MESS['RS_B2BPORTAL_BI_TYPE_CATALOG_TITLE'] = 'Импорт из списка артикулов';
+$MESS['RS_B2BPORTAL_BI_TYPE_FILE'] = 'Файла';
+$MESS['RS_B2BPORTAL_BI_TYPE_FILE_TITLE'] = 'Импорт из файла';
+$MESS['RS_B2BPORTAL_BI_ADDTOBASKET_SUCCESS'] = 'Товар #NAME# добавлен в корзину';
+$MESS['RS_B2BPORTAL_BI_ADDTOBASKET_ERROR'] = 'Ошибка добавления #NAME#: #REASON#';
+$MESS['RS_B2BPORTAL_BI_HAS_NOT_FOUND_ARTICLES'] = 'Один или несколько артикулов не найдено';
+
+$MESS['RS_B2BPORTAL_BI_MODAL_CANCEL'] = 'Отмена';
+$MESS['RS_B2BPORTAL_BI_MODAL_IMPORT'] = 'Импорт';
+
+$MESS['RS_B2BPORTAL_BI_CATALOG_PLACEHOLDER'] = 'Введите артикулы с новой строки. Например: 
+12359678
+69175457
+24356473
+23646835';
+
+$MESS['RS_B2BPORTAL_BI_FILE_IMPORT_STEP_1'] = 'Шаг 1: Загрузка файла (csv, xlsx, ods)';
+$MESS['RS_B2BPORTAL_BI_FILE_IMPORT_UPLOAD'] = 'Загрузить файл';
+$MESS['RS_B2BPORTAL_BI_FILE_IMPORT_LINK'] = 'По ссылке';
+$MESS['RS_B2BPORTAL_BI_FILE_IMPORT_SELECT_FILE'] = 'Выбрать файл';
+$MESS['RS_B2BPORTAL_BI_FILE_IMPORT_DOCUMENT_LINK'] = 'Ссылка на документ';
+$MESS['RS_B2BPORTAL_BI_FILE_IMPORT_NEXT'] = 'Далее';
+$MESS['RS_B2BPORTAL_BI_FILE_IMPORT_BACK'] = 'Назад';
+$MESS['RS_B2BPORTAL_BI_FILE_IMPORT_RESET'] = 'Заново';
+$MESS['RS_B2BPORTAL_BI_FILE_IMPORT_QUANTITY'] = 'Количество';
+$MESS['RS_B2BPORTAL_BI_FILE_IMPORT_ARTICLE'] = 'Артикул';
+$MESS['RS_B2BPORTAL_BI_FILE_IMPORT_SKIP_FIRST_ROW'] = 'Пропустить первую строку';
+
+$MESS['RS_B2BPORTAL_BI_FILE_IMPORT_STEP_2'] = 'Шаг 2: Настройка';
+$MESS['RS_B2BPORTAL_BI_FILE_IMPORT_STEP_3'] = 'Шаг 3: Добавление в корзину';
+$MESS['RS_B2BPORTAL_BI_BROWSE'] = 'Обзор';

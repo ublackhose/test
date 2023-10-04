@@ -22,17 +22,17 @@ if (!empty($arResult['BASKET']))
 		<table class="table">
 			<thead>
 			<tr>
-				<th scope="col"><?= Loc::getMessage('SPOD_NAME')?></th>
-				<th scope="col"><?= Loc::getMessage('SPOD_PRICE')?></th>
+				<th class="col"><?= Loc::getMessage('SPOD_NAME')?></th>
+				<th class="col"><?= Loc::getMessage('SPOD_PRICE')?></th>
 				<?
 				if (strlen($arResult["SHOW_DISCOUNT_TAB"]))
 				{
 					?>
-					<th scope="col"><?= Loc::getMessage('SPOD_DISCOUNT') ?></th>
+					<th class="col"><?= Loc::getMessage('SPOD_DISCOUNT') ?></th>
 					<?
 				}
 				?>
-				<th scope="col"><?= Loc::getMessage('SPOD_QUANTITY')?></th>
+				<th class="col"><?= Loc::getMessage('SPOD_QUANTITY')?></th>
 				<th class="text-right"><?= Loc::getMessage('SPOD_ORDER_PRICE')?></th>
 			</tr>
 			</thead>

@@ -9,19 +9,17 @@ use Bitrix\Main\Localization\Loc;
  * @var string $templateFolder
  */
 
-if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
+if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
     die();
 
 
 $priceGroups = [];
-if (Loader::includeModule('catalog'))
-{
+if (Loader::includeModule('catalog')) {
     $priceGroupsIterator = \Bitrix\Catalog\GroupTable::getList([
         'order' => ['SORT' => 'ASC'],
         'select' => ['ID', 'NAME', 'TITLE' => 'CURRENT_LANG.NAME']
     ]);
-    while ($group = $priceGroupsIterator->fetch())
-    {
+    while ($group = $priceGroupsIterator->fetch()) {
         $priceGroups[$group['NAME']] = '[' . $group['NAME'] . '] ' . $group['TITLE'];
     }
 }
@@ -72,8 +70,7 @@ $arTemplateParameters['CONVERT_CURRENCY'] = [
     'REFRESH' => 'Y',
 ];
 
-if ($arCurrentValues['CONVERT_CURRENCY'] === 'Y' && Loader::includeModule('currency'))
-{
+if ($arCurrentValues['CONVERT_CURRENCY'] === 'Y' && Loader::includeModule('currency')) {
     $currencies = \Bitrix\Currency\CurrencyManager::getCurrencyList();
 
     $arTemplateParameters['CURRENCY_ID'] = [

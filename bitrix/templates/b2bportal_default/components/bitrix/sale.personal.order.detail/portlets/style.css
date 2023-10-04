@@ -50,3 +50,27 @@
 .ui-state-disabled {
     color: red;
 }
+.tooltip_2 {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip_2 .tooltiptext {
+    visibility: hidden;
+    width: 150px;
+    background-color: #253590 ;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 130%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip_2:hover .tooltiptext {
+    visibility: visible;
+}

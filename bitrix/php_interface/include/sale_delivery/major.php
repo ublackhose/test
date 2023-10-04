@@ -24,6 +24,8 @@ class MajorLTL extends Base
 
 
     public static function raschet($weight){
+
+        $weight = $weight/1000;
         if($weight < 10){
             $le = 250/1000;
             $he = 300/1000;
@@ -45,15 +47,18 @@ class MajorLTL extends Base
             $we = 1500/1000;
             $valume = $le * $he * $we;
         }
-        return $valume;
+
+
+        return round($valume,2);
     }
 
     protected function calculateConcrete(\Bitrix\Sale\Shipment $shipment)
     {
-        define("LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"] . "/log.txt");
 
 
-        $weight = $shipment->getWeight() / 1000; // вес отгрузки
+
+
+        $weight = $shipment->getWeight() / 1000000; // вес отгрузки
 
         $order = $shipment->getCollection()->getOrder(); // заказ
         $price = $order->getPrice();//цена
@@ -68,7 +73,6 @@ class MajorLTL extends Base
         $res = getSoapDiliveryMajorLTL($location['NAME_RU'], $weight, $price,MajorLTL::raschet($weight));
 
 
-
         $enum = $shipment->getDelivery()->getExtraServices()->getItems();
         $test = null;
         if (isset($enum[4])) {
@@ -80,7 +84,8 @@ class MajorLTL extends Base
             }
         }
 
-        AddMessage2Log($test, "methods");
+
+
 
 
         if ($res && $test) {
