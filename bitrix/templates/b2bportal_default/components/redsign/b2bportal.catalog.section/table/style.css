@@ -1,0 +1,19 @@
+.product-item-button-container .btn-sm {
+  border-radius: .75rem;
+  padding: .5rem .625rem; }
+  .product-item-button-container .btn-sm > .icon-svg {
+    vertical-align: text-bottom; }
+
+
+/* .view-buttons-wrapper{
+  margin-right: auto; 
+} */
+
+@media (max-width: 500px) {
+  .kt-portlet .kt-portlet__head-toolbar .d-flex{
+    flex-wrap: wrap;
+    gap: 5px 0;
+    justify-content: end;
+    margin: 5px 0;
+  }
+}

@@ -1,0 +1,7 @@
+<?php
+$MESS['RS_B2BPORTAL_SPPS_LINK_LOGOUT'] = 'Выход';
+
+$MESS['RS_B2BPORTAL_SPPS_LINK_ADD_COMPANY'] = 'Добавить компанию';
+
+$MESS['RS_B2BPORTAL_SPPS_LINK_AUTH'] = 'Авторизация';
+$MESS['RS_B2BPORTAL_SPPS_LINK_REGISTER'] = 'Регистрация';
