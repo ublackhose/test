@@ -1,0 +1,11 @@
+.import-item {
+    border: 3px solid #1340B8;
+    margin-bottom: 15px;
+    color: #646c9a;
+    padding: 5px;
+}
+
+.import-item span.text-success {
+    color: #646c9a !important;
+
+}

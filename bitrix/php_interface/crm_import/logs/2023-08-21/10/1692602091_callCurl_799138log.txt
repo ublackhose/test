@@ -1,0 +1,79 @@
+array (
+  'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+  'info' => 
+  array (
+    'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+    'content_type' => 'application/json; charset=utf-8',
+    'http_code' => 200,
+    'header_size' => 838,
+    'request_size' => 229,
+    'filetime' => -1,
+    'ssl_verify_result' => 0,
+    'redirect_count' => 0,
+    'total_time' => 0.667999,
+    'namelookup_time' => 0.004131,
+    'connect_time' => 0.02844,
+    'pretransfer_time' => 0.028468,
+    'size_upload' => 1307.0,
+    'size_download' => 222.0,
+    'speed_download' => 332.0,
+    'speed_upload' => 1956.0,
+    'download_content_length' => 222.0,
+    'upload_content_length' => 1307.0,
+    'starttransfer_time' => 0.052247,
+    'redirect_time' => 0.0,
+    'redirect_url' => '',
+    'primary_ip' => '185.185.56.189',
+    'certinfo' => 
+    array (
+    ),
+    'primary_port' => 80,
+    'local_ip' => '192.168.122.202',
+    'local_port' => 35050,
+  ),
+  'params' => 
+  array (
+    'method' => 'crm.lead.add',
+    'params' => 
+    array (
+      'fields' => 
+      array (
+        'TITLE' => 'Регистрация нового пользователя на сайте',
+        'SOURCE_ID' => 3,
+        'NAME' => '',
+        'PHONE' => 
+        array (
+          'n0' => 
+          array (
+            'VALUE' => '',
+            'VALUE_TYPE' => 'MOBILE',
+          ),
+        ),
+        'COMMENTS' => 'Для активации пользователя перейдите по <a href="http://r1.mege-alpha.dev.4rome.ru/confirmUser/?userLogin=ivan.t@4rome.ru">ссылке</a>',
+        'ASSIGNED_BY_ID' => 6391,
+        'UF_CRM_1688103617380' => 'ivan.t@4rome.ru',
+        'UF_CRM_1688104526391' => ' ',
+        'UF_CRM_1688103927034' => 'ivan.t@4rome.ru',
+        'UF_CRM_1688104595621' => '1',
+        'UF_CRM_1688104547987' => 'ivan.t@4rome.ru',
+        'UF_CRM_1688104643675' => 'Тамкович Иван Егорович',
+        'UF_CRM_1688104661687' => 'ivan.t@4rome.ru',
+        'UF_CRM_1688104682447' => '+7 999 999-99-99',
+        'UF_CRM_1688104746393' => '',
+      ),
+    ),
+  ),
+  'result' => 
+  array (
+    'result' => 68117,
+    'time' => 
+    array (
+      'start' => 1692602090.94231,
+      'finish' => 1692602091.490744,
+      'duration' => 0.5484340190887451,
+      'processing' => 0.5069620609283447,
+      'date_start' => '2023-08-21T10:14:50+03:00',
+      'date_finish' => '2023-08-21T10:14:51+03:00',
+    ),
+  ),
+)

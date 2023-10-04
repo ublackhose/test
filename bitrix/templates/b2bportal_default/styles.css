@@ -1,0 +1,19 @@
+@media screen and (max-width: 1200px) {
+    td.vgt-left-align {
+        padding: 5px !important;
+    }
+}
+
+
+.vgt-wrap .vgt-table thead th:last-child,
+.vgt-wrap .vgt-table thead td:last-child,
+.vgt-wrap .vgt-table tbody th:last-child,
+.vgt-wrap .vgt-table tbody td:last-child {
+    padding-right: 5px; }
+
+.vgt-wrap .vgt-table thead th:last-child,
+.vgt-wrap .vgt-table thead td:last-child,
+.vgt-wrap .vgt-table tbody th:last-child,
+.vgt-wrap .vgt-table tbody td:last-child a{
+    font-size: 10px;
+}

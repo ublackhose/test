@@ -1,0 +1,79 @@
+array (
+  'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+  'info' => 
+  array (
+    'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+    'content_type' => 'application/json; charset=utf-8',
+    'http_code' => 200,
+    'header_size' => 838,
+    'request_size' => 229,
+    'filetime' => -1,
+    'ssl_verify_result' => 0,
+    'redirect_count' => 0,
+    'total_time' => 0.363732,
+    'namelookup_time' => 0.004116,
+    'connect_time' => 0.02683,
+    'pretransfer_time' => 0.026862,
+    'size_upload' => 1209.0,
+    'size_download' => 224.0,
+    'speed_download' => 615.0,
+    'speed_upload' => 3323.0,
+    'download_content_length' => 224.0,
+    'upload_content_length' => 1209.0,
+    'starttransfer_time' => 0.049707,
+    'redirect_time' => 0.0,
+    'redirect_url' => '',
+    'primary_ip' => '185.185.56.189',
+    'certinfo' => 
+    array (
+    ),
+    'primary_port' => 80,
+    'local_ip' => '192.168.122.202',
+    'local_port' => 51572,
+  ),
+  'params' => 
+  array (
+    'method' => 'crm.lead.add',
+    'params' => 
+    array (
+      'fields' => 
+      array (
+        'TITLE' => 'Регистрация нового пользователя на сайте',
+        'SOURCE_ID' => 3,
+        'NAME' => 'qqqqqqqqq',
+        'PHONE' => 
+        array (
+          'n0' => 
+          array (
+            'VALUE' => '',
+            'VALUE_TYPE' => 'MOBILE',
+          ),
+        ),
+        'COMMENTS' => 'Для активации пользователя перейдите по <a href="http://r1.mege-alpha.dev.4rome.ru/confirmUser/?userLogin=testqweqwe">ссылке</a>',
+        'ASSIGNED_BY_ID' => 6391,
+        'UF_CRM_1688103617380' => 'testqweqwe',
+        'UF_CRM_1688104526391' => 'qqqqqqqqq qqqqqqqqqq',
+        'UF_CRM_1688103927034' => 'jelsey1967@gmail.com',
+        'UF_CRM_1688104595621' => '1',
+        'UF_CRM_1688104547987' => '22222222',
+        'UF_CRM_1688104643675' => '22222222222',
+        'UF_CRM_1688104661687' => 'jelsey1967@gmail.com',
+        'UF_CRM_1688104682447' => '222222222222222',
+        'UF_CRM_1688104746393' => 'd',
+      ),
+    ),
+  ),
+  'result' => 
+  array (
+    'result' => 68102,
+    'time' => 
+    array (
+      'start' => 1691402555.31613,
+      'finish' => 1691402555.563539,
+      'duration' => 0.24740910530090332,
+      'processing' => 0.20418596267700195,
+      'date_start' => '2023-08-07T13:02:35+03:00',
+      'date_finish' => '2023-08-07T13:02:35+03:00',
+    ),
+  ),
+)

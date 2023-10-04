@@ -1,0 +1,38 @@
+{
+    "name": "b2bportal",
+    "version": "1.0.0",
+    "private": true,
+    "devDependencies": {
+        "@babel/cli": "^7.4.4",
+        "@babel/core": "^7.4.4",
+        "@babel/plugin-external-helpers": "^7.2.0",
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+        "@babel/plugin-transform-runtime": "^7.4.4",
+        "@babel/preset-env": "^7.4.4",
+        "babel-loader": "^8.0.5",
+        "del": "^4.1.1",
+        "glob": "^7.1.4",
+        "globby": "^10.0.0",
+        "gulp": "^4.0.1",
+        "gulp-autoprefixer": "^6.1.0",
+        "gulp-clean-css": "^4.2.0",
+        "gulp-rename": "^1.4.0",
+        "gulp-sass": "^5.0.0",
+        "gulp-sourcemaps": "^2.6.5",
+        "gulp-uglify": "^3.0.2",
+        "gulp-uglify-es": "^1.0.4",
+        "node-sass": "^6.0.1",
+        "rollup": "^2.65.0",
+        "rollup-plugin-commonjs": "9.2.0",
+        "rollup-plugin-vue": "^5.0.1",
+        "vue-loader": "^15.7.0",
+        "vue-template-compiler": "^2.6.10",
+        "webpack": "^4.30.0",
+        "webpack-stream": "^5.2.1"
+    },
+    "dependencies": {
+        "lodash": "^4.17.15",
+        "vue-good-table": "^2.19.5",
+        "vue-swatches": "^1.0.3"
+    }
+}

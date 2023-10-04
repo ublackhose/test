@@ -1,0 +1,13 @@
+.product-item-button-container .btn-sm {
+  border-radius: .75rem;
+  padding: .5rem .625rem; }
+  .product-item-button-container .btn-sm > .icon-svg {
+    vertical-align: text-bottom; }
+
+.dropdown-menu{
+  -webkit-box-shadow: 0px 0px 50px 0px rgb(82 63 105 / 57%) !important;
+  box-shadow: 0px 0px 50px 0px rgb(82 63 105 / 57%) !important;
+}
+/* .view-buttons-wrapper{
+  margin-right: auto; 
+} */

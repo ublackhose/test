@@ -1,0 +1,1 @@
+<a href="tel:+78007074072" class="kt-phone" style="border-bottom: 2px dashed; text-wrap: nowrap;"><span style="font-size: 10pt;">+7-800-707-40-72</span></a>

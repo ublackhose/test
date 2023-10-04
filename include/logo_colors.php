@@ -1,0 +1,1 @@
+<img class="logo-mege" src="/include/logo_mege.svg" />

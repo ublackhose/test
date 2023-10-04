@@ -1,0 +1,86 @@
+array (
+  'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+  'info' => 
+  array (
+    'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+    'content_type' => 'application/json; charset=utf-8',
+    'http_code' => 200,
+    'header_size' => 838,
+    'request_size' => 229,
+    'filetime' => -1,
+    'ssl_verify_result' => 0,
+    'redirect_count' => 0,
+    'total_time' => 0.759451,
+    'namelookup_time' => 0.004133,
+    'connect_time' => 0.026743,
+    'pretransfer_time' => 0.026773,
+    'size_upload' => 1407.0,
+    'size_download' => 223.0,
+    'speed_download' => 293.0,
+    'speed_upload' => 1852.0,
+    'download_content_length' => 223.0,
+    'upload_content_length' => 1407.0,
+    'starttransfer_time' => 0.049462,
+    'redirect_time' => 0.0,
+    'redirect_url' => '',
+    'primary_ip' => '185.185.56.189',
+    'certinfo' => 
+    array (
+    ),
+    'primary_port' => 80,
+    'local_ip' => '192.168.122.202',
+    'local_port' => 55216,
+  ),
+  'params' => 
+  array (
+    'method' => 'crm.lead.add',
+    'params' => 
+    array (
+      'fields' => 
+      array (
+        'TITLE' => 'Регистрация нового пользователя на сайте',
+        'SOURCE_ID' => 3,
+        'NAME' => 'asd',
+        'PHONE' => 
+        array (
+          'n0' => 
+          array (
+            'VALUE' => '',
+            'VALUE_TYPE' => 'MOBILE',
+          ),
+        ),
+        'COMMENTS' => 'Для активации пользователя перейдите по <a href="https://r1.mege-alpha.dev.4rome.ru/confirmUser/?userLogin=asd">ссылке</a>',
+        'ASSIGNED_BY_ID' => 6391,
+        'UF_CRM_1688103617380' => 'asd',
+        'UF_CRM_1688104526391' => 'asd asd',
+        'UF_CRM_1688103927034' => 'asd@sd.ru',
+        'UF_CRM_1688104595621' => '2',
+        'UF_CRM_1688104547987' => 'asd',
+        'UF_CRM_1689061781159' => 'asd',
+        'UF_CRM_1689061823844' => 'asd',
+        'UF_CRM_1689063839369' => 'asd',
+        'UF_CRM_1689063827973' => 'asd',
+        'UF_CRM_1689063856950' => 'asd',
+        'UF_CRM_1688104793493' => 'asd',
+        'UF_CRM_1689063809839' => '123',
+        'UF_CRM_1689063818577' => '23',
+        'UF_CRM_1689062929363' => '7 777 777 7777',
+        'UF_CRM_1689062953837' => 'фыв',
+        'UF_CRM_1689062834871' => 'no',
+      ),
+    ),
+  ),
+  'result' => 
+  array (
+    'result' => 68099,
+    'time' => 
+    array (
+      'start' => 1690348601.543008,
+      'finish' => 1690348602.184093,
+      'duration' => 0.6410849094390869,
+      'processing' => 0.5996508598327637,
+      'date_start' => '2023-07-26T08:16:41+03:00',
+      'date_finish' => '2023-07-26T08:16:42+03:00',
+    ),
+  ),
+)

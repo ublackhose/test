@@ -1,0 +1,86 @@
+array (
+  'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+  'info' => 
+  array (
+    'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+    'content_type' => 'application/json; charset=utf-8',
+    'http_code' => 200,
+    'header_size' => 838,
+    'request_size' => 229,
+    'filetime' => -1,
+    'ssl_verify_result' => 0,
+    'redirect_count' => 0,
+    'total_time' => 0.635902,
+    'namelookup_time' => 0.004137,
+    'connect_time' => 0.027511,
+    'pretransfer_time' => 0.027549,
+    'size_upload' => 1734.0,
+    'size_download' => 222.0,
+    'speed_download' => 349.0,
+    'speed_upload' => 2726.0,
+    'download_content_length' => 222.0,
+    'upload_content_length' => 1734.0,
+    'starttransfer_time' => 0.050805,
+    'redirect_time' => 0.0,
+    'redirect_url' => '',
+    'primary_ip' => '185.185.56.189',
+    'certinfo' => 
+    array (
+    ),
+    'primary_port' => 80,
+    'local_ip' => '192.168.122.202',
+    'local_port' => 43658,
+  ),
+  'params' => 
+  array (
+    'method' => 'crm.lead.add',
+    'params' => 
+    array (
+      'fields' => 
+      array (
+        'TITLE' => 'Регистрация нового пользователя на сайте',
+        'SOURCE_ID' => 3,
+        'NAME' => 'ASD',
+        'PHONE' => 
+        array (
+          'n0' => 
+          array (
+            'VALUE' => '',
+            'VALUE_TYPE' => 'MOBILE',
+          ),
+        ),
+        'COMMENTS' => 'Для активации пользователя перейдите по <a href="https://r1.mege-alpha.dev.4rome.ru/confirmUser/?userLogin=UDASDKASKD">ссылке</a>',
+        'ASSIGNED_BY_ID' => 6391,
+        'UF_CRM_1688103617380' => 'UDASDKASKD',
+        'UF_CRM_1688104526391' => 'ASD ASD',
+        'UF_CRM_1688103927034' => 'ublackhose@yandex.ru',
+        'UF_CRM_1688104595621' => '2',
+        'UF_CRM_1688104547987' => 'ASDSDASDSDASD',
+        'UF_CRM_1689061781159' => 'asdasdas',
+        'UF_CRM_1689061823844' => 'dasdasd',
+        'UF_CRM_1689063839369' => 'Фамилия',
+        'UF_CRM_1689063827973' => 'Имя',
+        'UF_CRM_1689063856950' => '',
+        'UF_CRM_1688104793493' => 'ЖСК - 1234',
+        'UF_CRM_1689063809839' => '7802051330',
+        'UF_CRM_1689063818577' => '780201001',
+        'UF_CRM_1689062929363' => '+7 999 999-99-99',
+        'UF_CRM_1689062953837' => 'г Санкт-Петербург, пр-кт Энгельса, д 149 к 2, кв 22',
+        'UF_CRM_1689062834871' => '',
+      ),
+    ),
+  ),
+  'result' => 
+  array (
+    'result' => 68122,
+    'time' => 
+    array (
+      'start' => 1693280923.821461,
+      'finish' => 1693280924.33682,
+      'duration' => 0.5153589248657227,
+      'processing' => 0.4662160873413086,
+      'date_start' => '2023-08-29T06:48:43+03:00',
+      'date_finish' => '2023-08-29T06:48:44+03:00',
+    ),
+  ),
+)

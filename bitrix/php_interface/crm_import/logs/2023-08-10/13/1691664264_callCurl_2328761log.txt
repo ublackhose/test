@@ -1,0 +1,86 @@
+array (
+  'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+  'info' => 
+  array (
+    'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+    'content_type' => 'application/json; charset=utf-8',
+    'http_code' => 200,
+    'header_size' => 838,
+    'request_size' => 229,
+    'filetime' => -1,
+    'ssl_verify_result' => 0,
+    'redirect_count' => 0,
+    'total_time' => 0.5366770000000001,
+    'namelookup_time' => 0.004132,
+    'connect_time' => 0.028265,
+    'pretransfer_time' => 0.028295,
+    'size_upload' => 1818.0,
+    'size_download' => 222.0,
+    'speed_download' => 413.0,
+    'speed_upload' => 3387.0,
+    'download_content_length' => 222.0,
+    'upload_content_length' => 1818.0,
+    'starttransfer_time' => 0.051989,
+    'redirect_time' => 0.0,
+    'redirect_url' => '',
+    'primary_ip' => '185.185.56.189',
+    'certinfo' => 
+    array (
+    ),
+    'primary_port' => 80,
+    'local_ip' => '192.168.122.202',
+    'local_port' => 34706,
+  ),
+  'params' => 
+  array (
+    'method' => 'crm.lead.add',
+    'params' => 
+    array (
+      'fields' => 
+      array (
+        'TITLE' => 'Регистрация нового пользователя на сайте',
+        'SOURCE_ID' => 3,
+        'NAME' => 'Fjhfkhg',
+        'PHONE' => 
+        array (
+          'n0' => 
+          array (
+            'VALUE' => '',
+            'VALUE_TYPE' => 'MOBILE',
+          ),
+        ),
+        'COMMENTS' => 'Для активации пользователя перейдите по <a href="https://r1.mege-alpha.dev.4rome.ru/confirmUser/?userLogin=hapad85664@viperace.com">ссылке</a>',
+        'ASSIGNED_BY_ID' => 6391,
+        'UF_CRM_1688103617380' => 'hapad85664@viperace.com',
+        'UF_CRM_1688104526391' => 'Fjhfkhg nvxn,mxcnv,',
+        'UF_CRM_1688103927034' => 'hapad85664@viperace.com',
+        'UF_CRM_1688104595621' => '2',
+        'UF_CRM_1688104547987' => 'Тестовый 10 авгутста',
+        'UF_CRM_1689061781159' => 'твтамбвь',
+        'UF_CRM_1689061823844' => 'чбтмьчт',
+        'UF_CRM_1689063839369' => 'стятчсяб',
+        'UF_CRM_1689063827973' => 'бячтя',
+        'UF_CRM_1689063856950' => '',
+        'UF_CRM_1688104793493' => 'Тест 10 августа',
+        'UF_CRM_1689063809839' => '7017675849',
+        'UF_CRM_1689063818577' => '50156489',
+        'UF_CRM_1689062929363' => '8 (911) 111-11-11',
+        'UF_CRM_1689062953837' => 'a:0:{}',
+        'UF_CRM_1689062834871' => 'no',
+      ),
+    ),
+  ),
+  'result' => 
+  array (
+    'result' => 68109,
+    'time' => 
+    array (
+      'start' => 1691664263.637073,
+      'finish' => 1691664264.068284,
+      'duration' => 0.431210994720459,
+      'processing' => 0.3928539752960205,
+      'date_start' => '2023-08-10T13:44:23+03:00',
+      'date_finish' => '2023-08-10T13:44:24+03:00',
+    ),
+  ),
+)

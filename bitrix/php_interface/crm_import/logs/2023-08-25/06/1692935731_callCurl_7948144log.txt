@@ -1,0 +1,75 @@
+array (
+  'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+  'info' => 
+  array (
+    'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+    'content_type' => 'application/json; charset=utf-8',
+    'http_code' => 200,
+    'header_size' => 813,
+    'request_size' => 944,
+    'filetime' => -1,
+    'ssl_verify_result' => 0,
+    'redirect_count' => 0,
+    'total_time' => 0.5970219999999999,
+    'namelookup_time' => 0.004175,
+    'connect_time' => 0.027629,
+    'pretransfer_time' => 0.027662,
+    'size_upload' => 738.0,
+    'size_download' => 223.0,
+    'speed_download' => 373.0,
+    'speed_upload' => 1236.0,
+    'download_content_length' => 223.0,
+    'upload_content_length' => 738.0,
+    'starttransfer_time' => 0.5970070000000001,
+    'redirect_time' => 0.0,
+    'redirect_url' => '',
+    'primary_ip' => '185.185.56.189',
+    'certinfo' => 
+    array (
+    ),
+    'primary_port' => 80,
+    'local_ip' => '192.168.122.202',
+    'local_port' => 56796,
+  ),
+  'params' => 
+  array (
+    'method' => 'crm.lead.add',
+    'params' => 
+    array (
+      'fields' => 
+      array (
+        'TITLE' => 'Заявка на изменение реквизитов или платежных данных',
+        'SOURCE_ID' => 3,
+        'NAME' => NULL,
+        'PHONE' => 
+        array (
+          'n0' => 
+          array (
+            'VALUE' => NULL,
+            'VALUE_TYPE' => 'MOBILE',
+          ),
+        ),
+        'COMMENTS' => 'Для активации пользователя перейдите по <a href="">ссылке</a>',
+        'ASSIGNED_BY_ID' => 6391,
+        'UF_CRM_1688103617380' => NULL,
+        'UF_CRM_1688104526391' => ' ',
+        'UF_CRM_1688103927034' => NULL,
+        'UF_CRM_1688104595621' => NULL,
+        'UF_CRM_1688104547987' => NULL,
+      ),
+    ),
+  ),
+  'result' => 
+  array (
+    'result' => 68118,
+    'time' => 
+    array (
+      'start' => 1692935730.626659,
+      'finish' => 1692935731.128044,
+      'duration' => 0.501384973526001,
+      'processing' => 0.45641493797302246,
+      'date_start' => '2023-08-25T06:55:30+03:00',
+      'date_finish' => '2023-08-25T06:55:31+03:00',
+    ),
+  ),
+)

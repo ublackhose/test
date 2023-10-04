@@ -1,0 +1,67 @@
+array (
+  'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+  'info' => 
+  array (
+    'url' => 'http://dev.b24.mege.ru/rest/6391/qyfiv2ilf77tzq46/crm.lead.add.json',
+    'content_type' => 'application/json; charset=utf-8',
+    'http_code' => 200,
+    'header_size' => 813,
+    'request_size' => 1107,
+    'filetime' => -1,
+    'ssl_verify_result' => 0,
+    'redirect_count' => 0,
+    'total_time' => 1.047354,
+    'namelookup_time' => 0.004147,
+    'connect_time' => 0.027121,
+    'pretransfer_time' => 0.027149,
+    'size_upload' => 901.0,
+    'size_download' => 221.0,
+    'speed_download' => 211.0,
+    'speed_upload' => 860.0,
+    'download_content_length' => 221.0,
+    'upload_content_length' => 901.0,
+    'starttransfer_time' => 1.047334,
+    'redirect_time' => 0.0,
+    'redirect_url' => '',
+    'primary_ip' => '185.185.56.189',
+    'certinfo' => 
+    array (
+    ),
+    'primary_port' => 80,
+    'local_ip' => '192.168.122.202',
+    'local_port' => 55210,
+  ),
+  'params' => 
+  array (
+    'method' => 'crm.lead.add',
+    'params' => 
+    array (
+      'fields' => 
+      array (
+        'TITLE' => 'Заявка на изменение реквизитов или платежных данных от профиля - Ivan Egorovich',
+        'SOURCE_ID' => 3,
+        'COMMENTS' => 'тестирование',
+        'ASSIGNED_BY_ID' => 6391,
+        'UF_CRM_1694065483836' => NULL,
+        'UF_CRM_1688104595621' => 'Физическое лицо',
+        'UF_CRM_1688104547987' => 'Ivan Egorovich',
+        'UF_CRM_1688104682447' => '+7 912 345-67-89',
+        'UF_CRM_1688104661687' => 'ivan.t@4rome.ru',
+        'UF_CRM_1688104643675' => 'Администратор12',
+      ),
+    ),
+  ),
+  'result' => 
+  array (
+    'result' => 68130,
+    'time' => 
+    array (
+      'start' => 1694590465.533539,
+      'finish' => 1694590466.4829,
+      'duration' => 0.9493608474731445,
+      'processing' => 0.9006998538970947,
+      'date_start' => '2023-09-13T10:34:25+03:00',
+      'date_finish' => '2023-09-13T10:34:26+03:00',
+    ),
+  ),
+)
